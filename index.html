@@ -3,52 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karyanest Softwares - High-Performance Local-First Utilities</title>
-  <meta name="description" content="Karyanest Softwares builds high-performance, offline-first software utilities that prioritize user privacy, speed, and cross-platform connection.">
+  <title>Karyanest Softwares — Offline-First Utilities</title>
+  <meta name="description" content="Karyanest Softwares builds offline-first software utilities. File sharing, Bluetooth remotes, and more — all running locally on your devices.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Dark Theme (Default) Variables */
-      --bg: #0a0c10;
-      --card-bg: rgba(255, 255, 255, 0.03);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-      --nav-bg: rgba(10, 12, 16, 0.8);
-      --badge-bg: rgba(59, 130, 246, 0.1);
-      --badge-border: rgba(59, 130, 246, 0.2);
-      
-      /* Common colors */
-      --primary: #3b82f6;
-      --primary-hover: #2563eb;
-      --accent: #a855f7;
-      --glow: rgba(59, 130, 246, 0.15);
-      --gradient-start: rgba(59, 130, 246, 0.05);
-      --gradient-end: rgba(168, 85, 247, 0.05);
-      --logo-text-color: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.3);
-      --card-hover-border: rgba(59, 130, 246, 0.3);
-      --invert-apple: invert(1);
+      --bg: #ffffff;
+      --bg-subtle: #f7f7f7;
+      --text: #171717;
+      --text-secondary: #737373;
+      --border: #e5e5e5;
+      --btn-bg: #171717;
+      --btn-text: #ffffff;
+      --btn-hover: #333333;
+      --card-bg: #ffffff;
     }
 
-    body.light-theme {
-      /* Light Theme Variables */
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --card-border: rgba(15, 23, 42, 0.08);
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --nav-bg: rgba(248, 250, 252, 0.8);
-      --badge-bg: rgba(59, 130, 246, 0.07);
-      --badge-border: rgba(59, 130, 246, 0.15);
-      --gradient-start: rgba(59, 130, 246, 0.02);
-      --gradient-end: rgba(168, 85, 247, 0.02);
-      --logo-text-color: #0f172a;
-      --shadow: rgba(15, 23, 42, 0.05);
-      --card-hover-border: rgba(59, 130, 246, 0.2);
-      --invert-apple: invert(0);
+    body.dark {
+      --bg: #0a0a0a;
+      --bg-subtle: #141414;
+      --text: #ededed;
+      --text-secondary: #a3a3a3;
+      --border: #262626;
+      --btn-bg: #ededed;
+      --btn-text: #0a0a0a;
+      --btn-hover: #d4d4d4;
+      --card-bg: #141414;
     }
 
     * {
@@ -58,490 +40,368 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      background-image: 
-        radial-gradient(circle at 10% 20%, var(--gradient-start) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, var(--gradient-end) 0%, transparent 40%);
+      transition: background 0.2s, color 0.2s;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Header Nav */
-    header.main-nav {
+    /* ── Nav ── */
+    header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 100;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--card-border);
-      transition: background 0.3s ease, border-color 0.3s ease;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-container {
-      max-width: 1200px;
+    .nav {
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 16px 24px;
+      padding: 0 24px;
+      height: 56px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .nav-brand {
       text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
     }
 
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 10px;
+    .nav-right {
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: white;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+      gap: 8px;
     }
 
-    .brand-logo svg {
-      width: 22px;
-      height: 22px;
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: color 0.15s;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
+    .nav-link:hover {
+      color: var(--text);
     }
 
-    .brand-name {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--logo-text-color);
-      line-height: 1.2;
-    }
-
-    .brand-sub {
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-    }
-
-    /* Theme Switcher Button */
-    .theme-toggle-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .theme-btn:hover {
+      border-color: var(--text-secondary);
       color: var(--text);
-      transition: all 0.2s ease;
     }
 
-    .theme-toggle-btn:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.15);
-    }
+    .theme-btn svg { width: 16px; height: 16px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    body.dark .icon-sun { display: block; }
+    body.dark .icon-moon { display: none; }
 
-    body.light-theme .theme-toggle-btn:hover {
-      background: rgba(0, 0, 0, 0.03);
-      border-color: rgba(0, 0, 0, 0.12);
-    }
-
-    .theme-toggle-btn svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .light-icon { display: none; }
-    .dark-icon { display: block; }
-
-    body.light-theme .light-icon { display: block; }
-    body.light-theme .dark-icon { display: none; }
-
-    /* Main Container layout */
-    .main-content {
-      max-width: 1200px;
+    /* ── Main ── */
+    main {
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 140px 24px 60px 24px;
+      padding: 0 24px;
     }
 
-    /* Hero Section */
-    .hero-section {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 80px auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* ── Hero ── */
+    .hero {
+      padding: 160px 0 100px;
+      max-width: 640px;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--badge-bg);
-      border: 1px solid var(--badge-border);
-      color: var(--primary);
-      padding: 6px 14px;
-      border-radius: 9999px;
-      font-size: 0.8rem;
+    .hero h1 {
+      font-size: 2.75rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 24px;
-    }
-
-    .hero-title {
-      font-size: 3.2rem;
-      font-weight: 850;
-      line-height: 1.1;
+      line-height: 1.15;
       letter-spacing: -0.03em;
-      margin-bottom: 24px;
-      background: linear-gradient(135deg, var(--logo-text-color) 30%, var(--text-muted));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      color: var(--text);
     }
 
-    .hero-description {
-      color: var(--text-muted);
-      font-size: 1.2rem;
+    .hero p {
+      font-size: 1.125rem;
       line-height: 1.6;
-      max-width: 680px;
+      color: var(--text-secondary);
+      max-width: 520px;
     }
 
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-      margin-bottom: 60px;
+    /* ── Products ── */
+    .products {
+      padding-bottom: 120px;
     }
 
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 40px 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 8px 24px var(--shadow);
-      position: relative;
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--card-hover-border);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
-    }
-
-    body.light-theme .project-card:hover {
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
-    }
-
-    .project-logo {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--node-bg);
-      box-shadow: 0 4px 12px var(--shadow);
-    }
-
-    .project-logo img, .project-logo svg {
-      width: 100%;
-      height: 100%;
-      border-radius: 14px;
-    }
-
-    .project-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .project-sub {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--primary);
+    .section-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-secondary);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 16px;
-    }
-
-    .project-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    .project-badge-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      letter-spacing: 0.06em;
       margin-bottom: 32px;
     }
 
-    .platform-badge {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--card-border);
-      color: var(--text);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    body.light-theme .platform-badge {
-      background: #f1f5f9;
-    }
-
-    .platform-badge svg {
-      width: 12px;
-      height: 12px;
-    }
-
-    .project-btn {
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 12px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      margin-top: auto;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-    }
-
-    .project-btn:hover {
-      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
-      transform: translateY(-1px);
-    }
-
-    /* Placeholder style */
-    .project-card.placeholder {
-      border-style: dashed;
-      background: transparent;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      cursor: default;
-    }
-
-    .project-card.placeholder:hover {
-      transform: none;
-      border-color: var(--card-border);
-      box-shadow: none;
-    }
-
-    .placeholder-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px dashed var(--card-border);
+    .product-list {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
     }
 
-    .placeholder-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+    .product-item {
+      background: var(--card-bg);
+      padding: 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s;
     }
 
-    .placeholder-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      max-width: 240px;
+    .product-item:hover {
+      background: var(--bg-subtle);
     }
 
-    /* Corporate Footer */
-    footer.main-footer {
-      border-top: 1px solid var(--card-border);
-      padding: 50px 24px;
-      background: var(--nav-bg);
-      transition: background 0.3s ease, border-color 0.3s ease;
-      margin-top: auto;
+    .product-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      flex-shrink: 0;
     }
 
-    .footer-container {
-      max-width: 1200px;
+    .product-icon img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    .product-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .product-body h2 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .product-body .tagline {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .product-body p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .product-platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .platform-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: var(--bg-subtle);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    body.dark .platform-tag {
+      background: #1a1a1a;
+    }
+
+    .product-arrow {
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      margin-top: 4px;
+      transition: transform 0.15s;
+    }
+
+    .product-item:hover .product-arrow {
+      transform: translateX(3px);
+    }
+
+    .product-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
     }
 
     .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
     }
 
-    .footer-copyright {
-      font-size: 0.85rem;
-      color: var(--text-muted);
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero { padding: 120px 0 64px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .product-item { flex-direction: column; gap: 16px; }
+      .product-arrow { display: none; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Corporate Navigation Bar -->
-  <header class="main-nav">
-    <div class="nav-container">
-      <a href="#" class="brand">
-        <div class="brand-logo">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">Karyanest</span>
-          <span class="brand-sub">Softwares</span>
-        </div>
-      </a>
-      <!-- Theme Toggle Button -->
-      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light/dark theme">
-        <svg class="dark-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-        <svg class="light-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
-      </button>
-    </div>
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">Karyanest Softwares</a>
+      <div class="nav-right">
+        <a href="portl.html" class="nav-link">Portl Share</a>
+        <a href="onelink.html" class="nav-link">OneLink Remote</a>
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+        </button>
+      </div>
+    </nav>
   </header>
 
-  <div class="main-content">
-    
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <span class="hero-badge">Local-First • Privacy Focused</span>
-      <h1 class="hero-title">High-performance software utilities.</h1>
-      <p class="hero-description">We build software that runs directly on your devices. No mandatory cloud accounts, no subscriptions, and zero tracking. Just fast, offline-first tools designed to work seamlessly.</p>
+  <main>
+
+    <section class="hero">
+      <h1>Software that works offline.</h1>
+      <p>We build utilities that run entirely on your devices. Local file sharing, Bluetooth remote control — no cloud accounts, no subscriptions.</p>
     </section>
 
-    <!-- Projects Grid -->
-    <main class="projects-grid">
-      
-      <!-- Project 1: Portl Share -->
-      <article class="project-card">
-        <div class="project-logo">
-          <img src="portl_icon.png" alt="Portl Share App Icon">
-        </div>
-        <h2 class="project-title">Portl Share</h2>
-        <span class="project-sub">Unified P2P Local Sync</span>
-        <p class="project-desc">Securely transfer photos, videos, and folders offline between devices on your local network. Direct peer-to-peer connectivity with zero cloud storage limits.</p>
-        
-        <div class="project-badge-container">
-          <span class="platform-badge">Windows</span>
-          <span class="platform-badge">macOS</span>
-          <span class="platform-badge">Linux</span>
-          <span class="platform-badge">Android</span>
-          <span class="platform-badge">iOS</span>
-        </div>
-        
-        <a href="portl.html" class="project-btn">
-          <span>View Project & Downloads</span>
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-      </article>
-      <!-- Project 2: Onelink Remote -->
-      <article class="project-card">
-        <div class="project-logo" style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 14px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 30px; height: 30px;">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-            <circle cx="12" cy="18" r="1" fill="#a855f7"></circle>
-            <path d="M9 6h6M9 10h6M9 14h6"></path>
-          </svg>
-        </div>
-        <h2 class="project-title">Onelink Remote</h2>
-        <span class="project-sub">Universal Bluetooth Remote</span>
-        <p class="project-desc">Turn your Android device into a low-latency keyboard, mouse, and presentation remote. No companion client software needed on the receiving computer.</p>
-        
-        <div class="project-badge-container">
-          <span class="platform-badge">Android (Host)</span>
-          <span class="platform-badge">Windows (Target)</span>
-          <span class="platform-badge">macOS (Target)</span>
-          <span class="platform-badge">Linux (Target)</span>
-          <span class="platform-badge">Android TV</span>
-        </div>
-        
-        <a href="onelink.html" class="project-btn" style="background: linear-gradient(135deg, var(--accent), #ec4899);">
-          <span>View Project & Details</span>
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-      </article>
+    <section class="products">
+      <div class="section-label">Products</div>
 
-      <!-- Project 3: Active Pipeline Placeholder -->
-      <div class="project-card placeholder">
-        <div class="placeholder-icon">
-          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><circle cx="12" cy="12" r="3" /></svg>
-        </div>
-        <h3 class="placeholder-title">More Utilities Coming Soon</h3>
-        <p class="placeholder-desc">We are actively building more premium, local-first applications. Stay tuned.</p>
+      <div class="product-list">
+
+        <a href="portl.html" class="product-item" id="product-portl">
+          <div class="product-icon">
+            <img src="portl_icon.png" alt="Portl Share">
+          </div>
+          <div class="product-body">
+            <h2>Portl Share</h2>
+            <div class="tagline">Local file transfer across all your devices</div>
+            <p>Transfer photos, videos, and folders between devices over your local network. No internet required, no file size limits, no cloud storage. Works across Windows, macOS, Linux, Android, and iOS.</p>
+            <div class="product-platforms">
+              <span class="platform-tag">Windows</span>
+              <span class="platform-tag">macOS</span>
+              <span class="platform-tag">Linux</span>
+              <span class="platform-tag">Android</span>
+              <span class="platform-tag">iOS</span>
+            </div>
+          </div>
+          <div class="product-arrow">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="onelink.html" class="product-item" id="product-onelink">
+          <div class="product-icon">
+            <img src="onelink_icon.png" alt="OneLink Remote">
+          </div>
+          <div class="product-body">
+            <h2>OneLink Remote</h2>
+            <div class="tagline">Universal Bluetooth remote control</div>
+            <p>Turn your Android phone into a wireless keyboard, mouse, touchpad, gamepad, and TV remote. Connects over Bluetooth — no Wi-Fi needed, no companion software on the target device.</p>
+            <div class="product-platforms">
+              <span class="platform-tag">Android</span>
+              <span class="platform-tag">Windows</span>
+              <span class="platform-tag">macOS</span>
+              <span class="platform-tag">Linux</span>
+              <span class="platform-tag">Android TV</span>
+            </div>
+          </div>
+          <div class="product-arrow">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
       </div>
+    </section>
 
-    </main>
+  </main>
 
-  </div>
-
-  <!-- Corporate Footer -->
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <span class="brand-name" style="color: var(--logo-text-color);">Karyanest Softwares</span>
-        <span class="footer-copyright">&copy; 2026 Karyanest Softwares. All rights reserved.</span>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">&copy; 2026 Karyanest Softwares · <a href="mailto:Karyanest@gmail.com" style="color: inherit;">Karyanest@gmail.com</a></span>
+      <div class="footer-links">
+        <a href="portl.html">Portl Share</a>
+        <a href="onelink.html">OneLink Remote</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Theme Toggle Functionality
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const body = document.body;
+    const toggle = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.body.classList.add('dark');
 
-    // Load saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      body.classList.add('light-theme');
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
-      body.classList.toggle('light-theme');
-      const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
-      localStorage.setItem('theme', currentTheme);
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
 </body>
