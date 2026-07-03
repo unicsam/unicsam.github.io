@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portl Share - Unified Offline File Sharing by Karyanest Softwares</title>
+  <meta name="description" content="Portl Share by Karyanest Softwares provides high-performance, secure, offline peer-to-peer file sharing between Windows, macOS, Linux, Android, and iOS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Dark Theme (Default) Variables */
+      --bg: #0a0c10;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --nav-bg: rgba(10, 12, 16, 0.8);
+      --badge-bg: rgba(59, 130, 246, 0.1);
+      --badge-border: rgba(59, 130, 246, 0.2);
+      
+      /* Common colors */
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --accent: #a855f7;
+      --glow: rgba(59, 130, 246, 0.15);
+      --highlight-border: rgba(59, 130, 246, 0.4);
+      --gradient-start: rgba(59, 130, 246, 0.05);
+      --gradient-end: rgba(168, 85, 247, 0.05);
+      --node-bg: #11131c;
+      --logo-text-color: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.3);
+      --invert-apple: invert(1);
+    }
+
+    body.light-theme {
+      /* Light Theme Variables */
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: rgba(15, 23, 42, 0.08);
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --nav-bg: rgba(248, 250, 252, 0.8);
+      --badge-bg: rgba(59, 130, 246, 0.07);
+      --badge-border: rgba(59, 130, 246, 0.15);
+      --gradient-start: rgba(59, 130, 246, 0.02);
+      --gradient-end: rgba(168, 85, 247, 0.02);
+      --node-bg: #ffffff;
+      --logo-text-color: #0f172a;
+      --shadow: rgba(15, 23, 42, 0.05);
+      --invert-apple: invert(0);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-image: 
+        radial-gradient(circle at 10% 20%, var(--gradient-start) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, var(--gradient-end) 0%, transparent 40%);
+    }
+
+    /* Header Nav */
+    header.main-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+
+    .brand-logo svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--logo-text-color);
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    /* Theme Switcher Button */
+    .theme-toggle-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    body.light-theme .theme-toggle-btn:hover {
+      background: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .theme-toggle-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .light-icon { display: none; }
+    .dark-icon { display: block; }
+
+    body.light-theme .light-icon { display: block; }
+    body.light-theme .dark-icon { display: none; }
+
+    /* Main Container layout */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 24px 60px 24px;
+    }
+
+    /* Hero Section (Two Columns) */
+    .hero-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+
+    .hero-info {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-infographic {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 850;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--logo-text-color) 30%, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Infographic styling */
+    .infographic-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 360px;
+      height: 360px;
+    }
+
+    .infographic-circle {
+      position: relative;
+      width: 270px;
+      height: 270px;
+      border: 1px dashed var(--card-border);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: spinOrbit 45s linear infinite;
+    }
+
+    .node {
+      animation: keepUpright 45s linear infinite;
+    }
+
+    @keyframes spinOrbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes keepUpright {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    .node {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: var(--node-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-muted);
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .node img, .node svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .node span {
+      font-size: 0.55rem;
+      font-weight: 700;
+      margin-top: 4px;
+      display: block;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .center-node {
+      width: 82px;
+      height: 82px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border: none;
+      box-shadow: 0 8px 28px rgba(59, 130, 246, 0.4);
+      z-index: 2;
+      animation: pulseLogo 3s ease-in-out infinite alternate !important;
+    }
+
+    .center-node svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    @keyframes pulseLogo {
+      0% { transform: scale(1); box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4); }
+      100% { transform: scale(1.06); box-shadow: 0 8px 36px rgba(59, 130, 246, 0.6); }
+    }
+
+    .orbit-node {
+      --radius: 130px;
+      top: calc(50% - 34px + var(--radius) * sin(var(--angle)));
+      left: calc(50% - 34px + var(--radius) * cos(var(--angle)));
+    }
+
+    .orbit-node:hover {
+      color: var(--text);
+      border-color: var(--primary);
+      background: rgba(59, 130, 246, 0.1);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+      transform: scale(1.1);
+    }
+
+    /* Play Store Badge */
+    .playstore-badge {
+      display: inline-block;
+      height: 52px;
+      transition: transform 0.2s ease;
+    }
+
+    .playstore-badge:hover {
+      transform: translateY(-2px);
+    }
+
+    .playstore-badge img {
+      height: 100%;
+      width: auto;
+    }
+
+    /* Product trust section */
+    .trust-section {
+      text-align: center;
+      margin-bottom: 80px;
+      padding: 40px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .trust-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .trust-desc {
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+      line-height: 1.6;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .trust-card {
+      padding: 24px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--card-border);
+      text-align: left;
+    }
+
+    .trust-card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .trust-card-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .trust-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .trust-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Downloads Grid Section */
+    .downloads-section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 850;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px var(--shadow);
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .card.recommended {
+      border-color: var(--highlight-border);
+      box-shadow: 0 0 30px var(--glow);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--primary);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--text-muted);
+    }
+
+    body.light-theme .card-icon {
+      background: rgba(15, 23, 42, 0.03);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .btn-group {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+    }
+
+    .btn-accent:hover {
+      box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
+    }
+
+    .expandable-links {
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .expandable-links.open {
+      margin-top: 10px;
+    }
+
+    .option-link {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    body.light-theme .option-link {
+      background: #f1f5f9;
+    }
+
+    .option-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    body.light-theme .option-link:hover {
+      background: #e2e8f0;
+    }
+
+    /* Accordion Details Section */
+    .guides-section {
+      max-width: 800px;
+      margin: 0 auto 80px auto;
+    }
+
+    .accordion-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .accordion-header {
+      padding: 20px 24px;
+      font-weight: 650;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .accordion-header:hover {
+      background-color: rgba(255, 255, 255, 0.01);
+    }
+
+    .accordion-icon {
+      transition: transform 0.2s ease;
+      color: var(--text-muted);
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .accordion-content-inner {
+      padding: 0 24px 20px 24px;
+    }
+
+    .accordion-content code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #f43f5e;
+      font-family: monospace;
+    }
+
+    body.light-theme .accordion-content code {
+      background: #f1f5f9;
+    }
+
+    /* Corporate Footer */
+    footer.main-footer {
+      border-top: 1px solid var(--card-border);
+      padding: 50px 24px;
+      background: var(--nav-bg);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-copyright {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+      }
+      .hero-info {
+        align-items: center;
+      }
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Corporate Navigation Bar -->
+  <header class="main-nav">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-logo" style="background: transparent; box-shadow: none;">
+          <img src="portl_icon.png" alt="Portl Logo" style="width: 40px; height: 40px; border-radius: 10px;">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Portl Share</span>
+          <span class="brand-sub">Karyanest Softwares</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#download" class="nav-link">Download</a>
+        <a href="#guides" class="nav-link">Guides</a>
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light/dark theme">
+          <svg class="dark-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="light-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-info">
+        <span class="hero-badge">Zero Setup • Blazing Fast</span>
+        <h1 class="hero-title">Unified file sharing across all your devices.</h1>
+        <p class="hero-description">Securely transfer photos, videos, and folders offline between Windows, macOS, Linux, Android, and iOS. Direct peer-to-peer connectivity with zero cloud storage.</p>
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-accent btn-primary" style="height: 52px; padding: 0 24px;">Get Portl Share</a>
+          <a href="https://play.google.com/store/apps/details?id=com.karyanest.portl" target="_blank" class="playstore-badge">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+      <div class="hero-infographic">
+        <!-- Circular P2P Connection Infographic -->
+        <div class="infographic-container">
+          <div class="infographic-circle">
+            <!-- Center Node (Portl Logo) -->
+            <div class="node center-node" style="background: transparent; border: none; box-shadow: none;">
+              <img src="portl_icon.png" alt="Portl Logo" style="width: 76px; height: 76px; border-radius: 18px; box-shadow: 0 8px 28px rgba(59, 130, 246, 0.4);">
+            </div>
+            <!-- 6 Surrounding Orbit Nodes -->
+            <!-- Windows -->
+            <div class="node orbit-node" style="--angle: 0deg;" title="Windows">
+              <svg viewBox="0 0 24 24" fill="#0078d7">
+                <path d="M0 3.449L9.75 2.1v9.45H0V3.449zM0 12.45h9.75v9.45L0 20.551v-8.1zM10.95 1.94L24 0v11.55H10.95V1.94zM10.95 12.45H24v11.55l-13.05-1.94v-9.61z"/>
+              </svg>
+              <span>Windows</span>
+            </div>
+            <!-- macOS (Macbook) -->
+            <div class="node orbit-node" style="--angle: 60deg;" title="Macbook">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="MacBook" style="width: 24px; height: 24px; filter: var(--invert-apple);">
+              <span>MacBook</span>
+            </div>
+            <!-- Linux -->
+            <div class="node orbit-node" style="--angle: 120deg;" title="Linux">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux" style="width: 24px; height: 28px;">
+              <span>Linux</span>
+            </div>
+            <!-- Chrome / Web Browser -->
+            <div class="node orbit-node" style="--angle: 180deg;" title="Chrome (Web)">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome" style="width: 24px; height: 24px;">
+              <span>Chrome</span>
+            </div>
+            <!-- Android -->
+            <div class="node orbit-node" style="--angle: 240deg;" title="Android">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="Android" style="width: 24px; height: 24px;">
+              <span>Android</span>
+            </div>
+            <!-- iOS -->
+            <div class="node orbit-node" style="--angle: 300deg;" title="iOS">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="iOS" style="width: 24px; height: 24px; filter: var(--invert-apple);">
+              <span>iOS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Portl Section -->
+    <section class="trust-section" id="features">
+      <h3 class="trust-title">Designed for absolute privacy and speed.</h3>
+      <p class="trust-desc">Portl establishes a direct, secure connection between devices on your local network. Your data never touches intermediate servers or cloud storage.</p>
+      
+      <div class="trust-grid">
+        <!-- Feature 1 -->
+        <div class="trust-card">
+          <div class="trust-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h4>100% Secure & Direct</h4>
+          <p>Files travel straight between paired nodes over local WiFi. No servers inspect or store your data.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="trust-card">
+          <div class="trust-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h4>Gigabit Speeds</h4>
+          <p>Transfer files at the full speed of your local network without consuming internet bandwidth or facing cloud caps.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="trust-card">
+          <div class="trust-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          </div>
+          <h4>Local Browser Sync</h4>
+          <p>Share files directly with any browser on your local network. Receivers don't need to install Portl to fetch the shared data.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downloads Grid Section -->
+    <section class="downloads-section" id="download">
+      <h3 class="section-title">Downloads</h3>
+      
+      <div class="grid">
+        <!-- Windows Card -->
+        <div class="card" id="card-windows">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#0078d7">
+              <path d="M0 3.449L9.75 2.1v9.45H0V3.449zM0 12.45h9.75v9.45L0 20.551v-8.1zM10.95 1.94L24 0v11.55H10.95V1.94zM10.95 12.45H24v11.55l-13.05-1.94v-9.61z"/>
+            </svg>
+          </div>
+          <h2>Windows</h2>
+          <span class="card-meta">Supports Windows 10 / 11</span>
+          <div class="btn-group">
+            <button class="btn btn-primary download-trigger">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download</span>
+            </button>
+            <div class="expandable-links">
+              <a href="portl-windows-x64.zip" class="option-link">
+                <span>Windows 64-bit (x64)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+              <a href="portl-windows-x86.zip" class="option-link">
+                <span>Windows 32-bit (x86)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+              <a href="portl-windows-arm64.zip" class="option-link">
+                <span>Windows ARM64</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Android Card -->
+        <div class="card" id="card-android">
+          <div class="card-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="Android" style="width: 28px; height: 28px;">
+          </div>
+          <h2>Android</h2>
+          <span class="card-meta">Supports Android 8.0+</span>
+          <div class="btn-group" style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="https://play.google.com/store/apps/details?id=com.karyanest.portl" target="_blank" class="playstore-badge" style="width: 100%; height: auto; text-align: center;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="width: 170px;">
+            </a>
+            <button class="btn btn-secondary download-trigger" style="background: rgba(255,255,255,0.05); border: 1px solid var(--card-border);">
+              <span>Direct APK Downloads</span>
+            </button>
+            <div class="expandable-links">
+              <a href="portl-android-arm64.apk" class="option-link">
+                <span>Android 64-bit (ARM64)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+              <a href="portl-android-arm32.apk" class="option-link">
+                <span>Android 32-bit (ARM32)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- macOS Card -->
+        <div class="card" id="card-macos">
+          <div class="card-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" style="width: 28px; height: 28px; filter: var(--invert-apple);">
+          </div>
+          <h2>macOS</h2>
+          <span class="card-meta">Supports macOS Catalina+</span>
+          <div class="btn-group">
+            <button class="btn btn-primary download-trigger">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download</span>
+            </button>
+            <div class="expandable-links">
+              <a href="portl-macos-universal.dmg" class="option-link">
+                <span>macOS Universal (dmg)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Linux Card -->
+        <div class="card" id="card-linux">
+          <div class="card-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux" style="width: 28px; height: 32px;">
+          </div>
+          <h2>Linux</h2>
+          <span class="card-meta">Supports Ubuntu, Debian, Fedora+</span>
+          <div class="btn-group">
+            <button class="btn btn-primary download-trigger">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download</span>
+            </button>
+            <div class="expandable-links">
+              <a href="portl-linux.AppImage" class="option-link">
+                <span>Linux AppImage</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides / Setup Accodions -->
+    <section class="guides-section" id="guides">
+      <h3 class="section-title" style="font-size: 1.75rem;">Installation Guides</h3>
+      
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Running Portl on Windows</span>
+          <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            Because this application is self-signed, Windows SmartScreen may display a warning dialog ("Windows protected your PC") on first launch.
+            <br><br>
+            To launch Portl:
+            <ol style="margin-left: 20px; margin-top: 8px;">
+              <li>Click <strong>"More info"</strong> on the dialog popup.</li>
+              <li>Select <strong>"Run anyway"</strong> at the bottom of the window.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Installing Portl on Android (Direct APK)</span>
+          <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            To install the direct APK package:
+            <ol style="margin-left: 20px; margin-top: 8px;">
+              <li>Download the APK file onto your device.</li>
+              <li>Tap the downloaded file. If prompted by your browser or system settings, allow installation from unknown sources.</li>
+              <li>Proceed with the on-screen prompts to complete setup.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Running Portl on macOS</span>
+          <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            If macOS prevents launch due to unidentified developer verification:
+            <ol style="margin-left: 20px; margin-top: 8px;">
+              <li>Navigate to <strong>System Settings > Privacy & Security</strong>.</li>
+              <li>Scroll down to the <strong>Security</strong> section.</li>
+              <li>Under the blocked app notification for Portl, click <strong>"Open Anyway"</strong>.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Running Portl on Linux (AppImage)</span>
+          <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            To make the AppImage executable:
+            <ol style="margin-left: 20px; margin-top: 8px;">
+              <li>Right-click the <code>.AppImage</code> file and select <strong>Properties</strong>.</li>
+              <li>Under the <strong>Permissions</strong> tab, enable <strong>"Allow executing file as program"</strong>.</li>
+              <li>Launch the program directly, or initialize it from your terminal:
+                <br>
+                <code style="display: block; margin-top: 8px; padding: 8px;">chmod +x portl-linux.AppImage && ./portl-linux.AppImage</code>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Corporate Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="brand-name" style="color: var(--logo-text-color);">Portl Share</span>
+        <span class="footer-copyright">&copy; 2026 Karyanest Softwares. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#features" class="footer-link">Features</a>
+        <a href="#download" class="footer-link">Downloads</a>
+        <a href="#guides" class="footer-link">Security Info</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light-theme');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+      localStorage.setItem('theme', currentTheme);
+    });
+
+    // Accordion interaction
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const content = item.querySelector('.accordion-content');
+        const isActive = item.classList.contains('active');
+
+        // Close all items
+        document.querySelectorAll('.accordion-item').forEach(el => {
+          el.classList.remove('active');
+          el.querySelector('.accordion-content').style.maxHeight = null;
+        });
+
+        // Toggle active
+        if (!isActive) {
+          item.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+
+    // Expandable download triggers
+    const downloadTriggers = document.querySelectorAll('.download-trigger');
+    downloadTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const group = trigger.parentElement;
+        const linksList = group.querySelector('.expandable-links');
+        const isOpen = linksList.classList.contains('open');
+
+        // Close all other expandable link containers
+        document.querySelectorAll('.expandable-links').forEach(el => {
+          el.classList.remove('open');
+          el.style.maxHeight = null;
+        });
+
+        if (!isOpen) {
+          linksList.classList.add('open');
+          linksList.style.maxHeight = linksList.scrollHeight + "px";
+        }
+      });
+    });
+
+    // Close expandable lists when clicking outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.expandable-links').forEach(el => {
+        el.classList.remove('open');
+        el.style.maxHeight = null;
+      });
+    });
+
+  </script>
+</body>
+</html>
