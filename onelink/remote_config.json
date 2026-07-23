@@ -1,0 +1,22 @@
+{
+  "update_url": "market://details?id=com.karyanest.onelink.remote",
+  "forced_update": {
+    "min_version_name": "1.1.774",
+    "force_all": false,
+    "title": "Update Required",
+    "message": "A new version of the remote is available. Please update the app to continue."
+  },
+  "blocked_update": {
+    "versions": [
+      "1.0.0",
+      "1.0.1"
+    ],
+    "title": "Version Blocked",
+    "message": "This specific version has a known critical issue. Please update immediately to continue."
+  },
+  "soft_update": {
+    "recommended_version_name": "",
+    "title": "New Features Available!",
+    "message": "Check out the newest features in the latest version."
+  }
+}
