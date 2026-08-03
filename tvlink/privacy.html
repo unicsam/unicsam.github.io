@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Universal Android TV Remote</title>
+  <meta name="description" content="Privacy Policy for Universal Android TV Remote by Karyanest. Explaining permissions, data handling, and local network operations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f7f7f7;
+      --text: #171717;
+      --text-secondary: #737373;
+      --border: #e5e5e5;
+    }
+
+    body.dark {
+      --bg: #0a0a0a;
+      --bg-subtle: #141414;
+      --text: #ededed;
+      --text-secondary: #a3a3a3;
+      --border: #262626;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .theme-btn:hover { border-color: var(--text-secondary); color: var(--text); }
+    .theme-btn svg { width: 16px; height: 16px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    body.dark .icon-sun { display: block; }
+    body.dark .icon-moon { display: none; }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .app-name {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--text);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 64px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-brand">Karyanest Softwares</a>
+      <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <div class="app-name">Universal Android TV Remote (com.tvlink)</div>
+    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px; font-weight: 500;">Last Updated: August 3, 2026</div>
+
+    <div class="highlight-box">
+      <p>Universal Android TV Remote is designed as a local-first Wi-Fi utility. We prioritize your privacy: keystrokes, connection credentials, and configurations stay entirely on your device and connected TV hardware.</p>
+    </div>
+
+    <p>This Privacy Policy describes how we handle device permissions, user data, and payments within the application.</p>
+
+    <h2>1. Data Safety & Processing</h2>
+    <ul>
+      <li><strong>No Direct Personal Information Collection:</strong> We do not collect personal information directly (such as names, phone numbers, email addresses, or physical location data).</li>
+      <li><strong>Local Volatile Processing:</strong> All remote control buttons, touchpad gesture navigation inputs, and typed keyboard entries are processed in volatile memory on your hardware and transmitted directly over your local network links to your TV. They are never logged, stored, or sent to external servers.</li>
+    </ul>
+
+    <h2>2. In-App Purchases & Payments Policy</h2>
+    <p>The Application currently does not sell or process paid digital upgrades, subscriptions, or services. No payment gateways are integrated within the app, and we do not collect or access credit cards, debit cards, UPI, or financial credentials.</p>
+    <p><strong>Developer Entity Name:</strong> Karyanest</p>
+
+    <h2>3. Permissions and Usage</h2>
+    <p>The App requires specific Android permissions to function as a local TV Remote and provide network utility services:</p>
+    <ul>
+      <li><strong>Local Network / Wi-Fi Access:</strong> Used to discover, resolve, pair with, and control TV hosts over standard mDNS (multicast DNS) and local socket protocol streams.</li>
+      <li><strong>Record Audio (Microphone):</strong> Used locally to capture voice queries when you press the microphone button, sending the raw local audio packet directly to the TV for local processing. Voice data is processed in-memory and is never saved or uploaded to Karyanest servers.</li>
+      <li><strong>Vibration / Wake Lock:</strong> Used respectively for haptic button feedback and preventing connection dropouts while active.</li>
+    </ul>
+
+    <h2>4. Advertising and Stability</h2>
+    <ul>
+      <li><strong>Google AdMob:</strong> Integrated to serve advertisements to users. AdMob may process device identifiers and telemetry in accordance with Google's Privacy Policy.</li>
+      <li><strong>Google Firebase Crashlytics & Analytics:</strong> Used solely to log anonymous crash reports and monitor application stability. No raw hardware identifiers or personal info are shared.</li>
+    </ul>
+
+    <h2>5. Children's Privacy</h2>
+    <p>The app is not directed toward children under 13 and does not knowingly collect personal information from children.</p>
+
+    <h2>6. Contact Us</h2>
+    <p>If you have any questions or feedback regarding this Privacy Policy, please feel free to reach out to us via email at: <a href="mailto:karyanest@gmail.com" style="color: inherit;">karyanest@gmail.com</a>.</p>
+
+    <footer>
+      &copy; 2026 Karyanest Softwares. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.body.classList.add('dark');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
