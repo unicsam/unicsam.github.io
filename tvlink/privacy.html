@@ -171,7 +171,7 @@
   <main>
     <h1>Privacy Policy</h1>
     <div class="app-name">Universal Android TV Remote (com.tvlink)</div>
-    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px; font-weight: 500;">Last Updated: August 3, 2026</div>
+    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px; font-weight: 500;">Last Updated: August 15, 2026</div>
 
     <div class="highlight-box">
       <p>Universal Android TV Remote is designed as a local-first Wi-Fi utility. We prioritize your privacy: keystrokes, connection credentials, and configurations stay entirely on your device and connected TV hardware.</p>
@@ -186,13 +186,14 @@
     </ul>
 
     <h2>2. In-App Purchases & Payments Policy</h2>
-    <p>The Application currently does not sell or process paid digital upgrades, subscriptions, or services. No payment gateways are integrated within the app, and we do not collect or access credit cards, debit cards, UPI, or financial credentials.</p>
+    <p>The Application offers optional digital upgrades and Pro subscriptions processed securely through <strong>Google Play In-App Billing</strong> and <strong>RevenueCat</strong>. We do not store or access your credit cards, debit cards, UPI, or financial credentials. All financial transactions are managed entirely by Google Play.</p>
     <p><strong>Developer Entity Name:</strong> Karyanest</p>
 
     <h2>3. Permissions and Usage</h2>
     <p>The App requires specific Android permissions to function as a local TV Remote and provide network utility services:</p>
     <ul>
       <li><strong>Local Network / Wi-Fi Access:</strong> Used to discover, resolve, pair with, and control TV hosts over standard mDNS (multicast DNS) and local socket protocol streams.</li>
+      <li><strong>Bluetooth (BLUETOOTH_CONNECT & BLUETOOTH_SCAN):</strong> Used solely to discover and dispatch direct Bluetooth Human Interface Device (HID) Consumer Control wake reports (Power keycode 0x0030) to sleeping TV hardware. Bluetooth is never used to track physical location or collect personal data.</li>
       <li><strong>Record Audio (Microphone):</strong> Used locally to capture voice queries when you press the microphone button, sending the raw local audio packet directly to the TV for local processing. Voice data is processed in-memory and is never saved or uploaded to Karyanest servers.</li>
       <li><strong>Vibration / Wake Lock:</strong> Used respectively for haptic button feedback and preventing connection dropouts while active.</li>
     </ul>
@@ -201,6 +202,7 @@
     <ul>
       <li><strong>Google AdMob:</strong> Integrated to serve advertisements to users. AdMob may process device identifiers and telemetry in accordance with Google's Privacy Policy.</li>
       <li><strong>Google Firebase Crashlytics & Analytics:</strong> Used solely to log anonymous crash reports and monitor application stability. No raw hardware identifiers or personal info are shared.</li>
+      <li><strong>RevenueCat:</strong> Used to securely manage and verify subscription entitlements via Google Play.</li>
     </ul>
 
     <h2>5. Children's Privacy</h2>
