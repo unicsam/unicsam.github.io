@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Net Blocker</title>
+  <meta name="description" content="Privacy Policy for Net Blocker by Karyanest Softwares. Net Blocker is a local on-device firewall that collects no personal data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f7f7f7;
+      --text: #171717;
+      --text-secondary: #737373;
+      --border: #e5e5e5;
+    }
+
+    body.dark {
+      --bg: #0a0a0a;
+      --bg-subtle: #141414;
+      --text: #ededed;
+      --text-secondary: #a3a3a3;
+      --border: #262626;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .theme-btn:hover { border-color: var(--text-secondary); color: var(--text); }
+    .theme-btn svg { width: 16px; height: 16px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    body.dark .icon-sun { display: block; }
+    body.dark .icon-moon { display: none; }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .app-name {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .last-updated {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    p, li {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .highlight-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-brand a { color: inherit; }
+
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-brand">Karyanest Softwares</a>
+      <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="app-name"><strong>Net Blocker</strong> by Karyanest Softwares</p>
+    <p class="last-updated">Effective date: August 21, 2026</p>
+
+    <p>This Privacy Policy describes how the Net Blocker application ("the App") handles information. Net Blocker is developed by Karyanest Softwares as an offline-first, privacy-focused application. By using the App, you agree to the practices described below.</p>
+
+    <div class="highlight-box">
+      <p><strong>Core Privacy Commitment:</strong> Net Blocker operates 100% on your device. We do not operate any backend servers, and we do not collect, monitor, store, log, or transmit any user network traffic, browsing history, or personal data.</p>
+    </div>
+
+    <h2>1. Information We Collect</h2>
+    <p><strong>We do not collect any personal data or network traffic.</strong> Net Blocker is a local firewall tool. The App does not collect, record, or track your browsing activity, websites visited, DNS queries, packet payloads, device identifiers, advertising IDs, or personal information.</p>
+    <p>No user account, login, email address, or registration is required to use the App.</p>
+
+    <h2>2. How the Local Firewall and VPN Service Work</h2>
+    <p>Net Blocker utilizes Android's <code>VpnService</code> API exclusively as an on-device local firewall to manage network access for applications installed on your device.</p>
+    <ul>
+      <li><strong>Local Processing:</strong> All network traffic inspection and filtering happen entirely on your device's local loopback.</li>
+      <li><strong>No Remote Routing:</strong> The App does <em>not</em> route your internet traffic through any external proxy or remote VPN servers.</li>
+      <li><strong>Local Rule Enforcement:</strong> The VPN interface is used solely to sinkhole or allow network sockets for specific applications according to your configured Blacklist or Whitelist rules.</li>
+    </ul>
+
+    <h2>3. Permissions and Their Purpose</h2>
+    <p>Net Blocker requests the following permissions to deliver its core firewall functionality. Each permission is used strictly as described:</p>
+    <ul>
+      <li><strong>VpnService (BIND_VPN_SERVICE):</strong> Required by the Android OS to create an on-device VPN interface for intercepting and blocking network connections of user-selected apps.</li>
+      <li><strong>Query All Packages (QUERY_ALL_PACKAGES):</strong> Required to enumerate and display the list of installed applications on your device so you can view and toggle Wi-Fi and Mobile Data blocking rules for individual apps. This package data is read locally and never leaves your device.</li>
+      <li><strong>Foreground Service (FOREGROUND_SERVICE, FOREGROUND_SERVICE_SPECIAL_USE):</strong> Required to maintain continuous, uninterrupted firewall filtering in the background and display an ongoing notification with quick controls (Pause / Resume Protection).</li>
+      <li><strong>Notifications (POST_NOTIFICATIONS):</strong> Used to display the ongoing firewall status notification in your status bar and provide quick action buttons.</li>
+      <li><strong>Receive Boot Completed (RECEIVE_BOOT_COMPLETED):</strong> Used to automatically restore your configured firewall protection after your device restarts, if enabled.</li>
+      <li><strong>Network State (ACCESS_NETWORK_STATE, INTERNET):</strong> Used locally to detect whether the device is connected to Wi-Fi or Mobile Data to apply separate network blocking rules accurately.</li>
+    </ul>
+
+    <h2>4. Crash Diagnostics & Stability</h2>
+    <p>To identify bugs and maintain stability across diverse Android devices, the App integrates <strong>Google Firebase Crashlytics</strong>. When an unexpected app crash occurs, Crashlytics may collect anonymous, non-personally identifiable diagnostic data (such as stack traces, device model, operating system version, and timestamp). This data is used solely to diagnose and fix technical crashes.</p>
+
+    <h2>5. Third-Party Services & Advertising</h2>
+    <p>The App contains <strong>no advertising SDKs, no user tracking trackers, and no data broker integrations</strong>. We do not sell, trade, or monetize user data.</p>
+
+    <h2>6. Data Storage & Retention</h2>
+    <p>Your firewall rules and application preferences are stored locally on your device using encrypted Room database and Android Jetpack DataStore. This data never leaves your device and is completely removed if you uninstall the App or clear App storage via Android Settings.</p>
+
+    <h2>7. Children's Privacy</h2>
+    <p>Net Blocker does not collect personal information from anyone, including children under the age of 13. The App does not solicit data from minors.</p>
+
+    <h2>8. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy periodically. Any updates will be posted on this page with an updated "Effective date".</p>
+
+    <h2>9. Contact Us</h2>
+    <p>If you have any questions or feedback regarding this Privacy Policy or Net Blocker, please reach out to us at:</p>
+    <p>
+      <strong>Karyanest Softwares</strong><br>
+      Email: <a href="mailto:Karyanest@gmail.com">Karyanest@gmail.com</a>
+    </p>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">&copy; 2026 Karyanest Softwares · <a href="mailto:Karyanest@gmail.com">Karyanest@gmail.com</a></span>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.body.classList.add('dark');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
