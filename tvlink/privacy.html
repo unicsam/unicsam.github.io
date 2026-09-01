@@ -171,7 +171,7 @@
   <main>
     <h1>Privacy Policy</h1>
     <div class="app-name">Universal Android TV Remote (com.tvlink)</div>
-    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px; font-weight: 500;">Last Updated: August 15, 2026</div>
+    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px; font-weight: 500;">Last Updated: September 1, 2026</div>
 
     <div class="highlight-box">
       <p>Universal Android TV Remote is designed as a local utility. We prioritize your privacy: remote control actions, credentials, and settings stay on your device and your TV.</p>
@@ -183,6 +183,7 @@
     <ul>
       <li><strong>No Direct Personal Information Collection:</strong> We do not collect personal information directly (such as names, phone numbers, email addresses, or physical location data).</li>
       <li><strong>Local Volatile Processing:</strong> All remote control buttons, touchpad gesture navigation inputs, and typed keyboard entries are processed in volatile memory on your hardware and transmitted directly over your local network links to your TV. They are never logged, stored, or sent to external servers.</li>
+      <li><strong>Anonymous Licensing & Promotional Entitlements (Cloud Firestore):</strong> To manage promotional campaign redemptions, trial periods, and gift entitlements without requiring user accounts or logins, the application creates a one-way cryptographic SHA-256 hash of anonymous device hardware characteristics. This pseudonymized identifier and installation timestamps are stored securely in Google Cloud Firestore solely for license validation, cooldown enforcement, and fraud prevention (enforcing one promotion per device limit). This identifier cannot be reversed to identify you personally and is never linked to your personal identity.</li>
     </ul>
 
     <h2>2. In-App Purchases & Payments Policy</h2>
@@ -201,7 +202,7 @@
     <h2>4. Advertising and Stability</h2>
     <ul>
       <li><strong>Google AdMob:</strong> Integrated to serve advertisements to users. AdMob may process device identifiers and telemetry in accordance with Google's Privacy Policy.</li>
-      <li><strong>Google Firebase Crashlytics & Analytics:</strong> Used solely to log anonymous crash reports and monitor application stability. No raw hardware identifiers or personal info are shared.</li>
+      <li><strong>Google Firebase (Cloud Firestore, Crashlytics & Analytics):</strong> Used for anonymous crash diagnostic reports, stability monitoring, and managing promotional entitlements via pseudonymized device hashes. No personally identifiable information is collected.</li>
       <li><strong>RevenueCat:</strong> Used to securely manage and verify subscription entitlements via Google Play.</li>
     </ul>
 
