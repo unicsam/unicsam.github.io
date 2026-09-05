@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ & About — LightWeb Browser</title>
+  <meta name="description" content="Frequently Asked Questions and About LightWeb Browser by Karyanest Softwares.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --bg-subtle: #111827;
+      --card-bg: #141c29;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1f293d;
+      --accent: #00e5ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 23, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .hero {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00e5ff, #2979ff);
+    }
+    .hero h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="../index.html" class="logo">
+        <span class="logo-dot"></span>
+        <span>LightWeb</span>
+      </a>
+      <a href="privacy.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 600;">Privacy Policy</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>FAQ &amp; About LightWeb</h1>
+      <p style="color: var(--text-secondary);">Fast, zero-chrome, hardware-accelerated web browsing designed from the ground up for Android TV.</p>
+    </div>
+
+    <div class="card">
+      <h2>What makes LightWeb different from standard Android TV browsers?</h2>
+      <p>Most TV browsers are simple WebViews wrapped in heavy TV launchers. LightWeb uses the standalone Mozilla GeckoView rendering engine with custom MediaCodec hardware video acceleration, zero-disk RAM caching, and an integrated virtual cursor tailored for TV remotes.</p>
+    </div>
+
+    <div class="card">
+      <h2>How do I navigate between screens?</h2>
+      <p>LightWeb uses a 3-Space architecture:</p>
+      <p>• <strong>Space 1:</strong> Search &amp; Bookmarks Hub (Start Page).<br>
+         • <strong>Space 2:</strong> 100% Zero-Chrome Active Website.<br>
+         • <strong>Space 3:</strong> Tabs &amp; History Card Grid.</p>
+      <p>Press the <strong>Back</strong> button or <strong>Menu</strong> key on your remote anytime to bring up the Navigation HUD to switch screens.</p>
+    </div>
+
+    <div class="card">
+      <h2>How does the virtual mouse pointer work?</h2>
+      <p>On websites not specifically designed for TV D-Pads, LightWeb activates a precision virtual mouse. Tapping a D-Pad arrow gives a small micro-nudge for clicking tiny buttons, while holding the arrow accelerates smoothly across the screen. Pressing DPAD_CENTER performs a click, while holding it opens the TV Context Menu.</p>
+    </div>
+
+    <div class="card">
+      <h2>Does LightWeb block ads and trackers?</h2>
+      <p>Yes. LightWeb integrates built-in StevenBlack ad-blocking rules and native Firefox tracking protection at the engine level to prevent malicious popups and reduce page load times.</p>
+    </div>
+
+    <div class="card">
+      <h2>Is my personal data safe?</h2>
+      <p>LightWeb collects zero personal data, maintains no user accounts, and contains no advertisement networks. Read our full <a href="privacy.html" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a> for details.</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Karyanest Softwares. All rights reserved. • LightWeb Browser
+  </footer>
+</body>
+</html>
