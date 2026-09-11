@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Omni: Universal AC Remote</title>
+  <meta name="description" content="Privacy Policy for Omni: Universal AC Remote by Karyanest Softwares. No ads, no personal data collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-subtle: #f8fafc; --card-bg: #ffffff;
+      --text: #0f172a; --text-secondary: #475569; --border: #e2e8f0;
+      --accent: #10b981; --accent-dim: #d1fae5;
+    }
+    body.dark {
+      --bg: #0b0f17; --bg-subtle: #111827; --card-bg: #141c29;
+      --text: #f8fafc; --text-secondary: #94a3b8; --border: #1f293d;
+      --accent: #34d399; --accent-dim: #064e3b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; transition: background 0.2s, color 0.2s; -webkit-font-smoothing: antialiased; line-height: 1.75; }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.2s, border-color 0.2s; }
+    .nav { max-width: 800px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .nav-title { font-size: 15px; font-weight: 700; color: var(--text); letter-spacing: -0.2px; }
+    .theme-btn { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: background 0.15s; color: var(--text); }
+    .theme-btn:hover { background: var(--border); }
+    main { max-width: 800px; margin: 0 auto; padding: 88px 24px 64px; }
+    .hero { text-align: center; padding: 48px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-dim); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 4px 12px; border-radius: 99px; margin-bottom: 16px; }
+    .hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.8px; color: var(--text); margin-bottom: 12px; line-height: 1.2; }
+    .hero-sub { font-size: 15px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 20px; }
+    .hero-date { font-size: 12px; color: var(--text-secondary); font-weight: 500; }
+    .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 48px; }
+    .highlight-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 14px; padding: 20px 16px; text-align: center; transition: border-color 0.15s; }
+    .highlight-card:hover { border-color: var(--accent); }
+    .highlight-icon { font-size: 24px; margin-bottom: 8px; }
+    .highlight-label { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .highlight-desc { font-size: 11.5px; color: var(--text-secondary); line-height: 1.5; }
+    .section { margin-bottom: 40px; }
+    .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .section-num { width: 28px; height: 28px; background: var(--accent-dim); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+    .section-title { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.2px; }
+    .section p { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.75; }
+    .section p:last-child { margin-bottom: 0; }
+    .perm-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .perm-row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; padding: 12px 16px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 10px; transition: border-color 0.15s; }
+    .perm-row:hover { border-color: var(--accent); }
+    .perm-icon { font-size: 18px; }
+    .perm-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .perm-reason { font-size: 12px; color: var(--text-secondary); }
+    .perm-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.4px; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
+    .badge-required { background: #fef3c7; color: #92400e; }
+    body.dark .badge-required { background: #451a03; color: #fbbf24; }
+    .badge-optional { background: var(--accent-dim); color: var(--accent); }
+    .contact-box { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: center; }
+    .contact-box p { margin-bottom: 8px; }
+    .contact-box a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 12px; color: var(--text-secondary); }
+    @media (max-width: 600px) {
+      .highlights { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 24px; }
+      .perm-row { grid-template-columns: auto 1fr; grid-template-rows: auto auto; }
+      .perm-badge { grid-column: 2; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="nav-brand" href="https://unicsam.github.io">
+        <div class="nav-icon">❄️</div>
+        <span class="nav-title">Omni AC Remote</span>
+      </a>
+      <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-badge"><span>🔒</span> Privacy Policy</div>
+      <h1>Omni: Universal AC Remote</h1>
+      <p class="hero-sub">Simple, honest, and to the point — we built a remote control app, not a data collection service.</p>
+      <p class="hero-date">Effective date: September 11, 2026 &nbsp;·&nbsp; Last updated: September 11, 2026</p>
+    </div>
+
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon">🚫</div>
+        <div class="highlight-label">No Ads</div>
+        <div class="highlight-desc">Zero advertisements. No ad SDKs are embedded in the app.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🙈</div>
+        <div class="highlight-label">No Personal Data</div>
+        <div class="highlight-desc">We never collect, store, or sell any personal information.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">💥</div>
+        <div class="highlight-label">Crash Reports Only</div>
+        <div class="highlight-desc">Anonymous crash analytics to keep the app stable.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">Overview</h2></div>
+      <p>Omni: Universal AC Remote ("the App") is developed by <strong>Karyanest Softwares</strong>. This app uses your phone's built-in IR blaster to control air conditioners — nothing more.</p>
+      <p>We have designed the App with a strict privacy-first approach. We do <strong>not</strong> require account creation, we do <strong>not</strong> upload your usage data, and we do <strong>not</strong> display advertisements of any kind.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">Data We Do Not Collect</h2></div>
+      <p>The following data is <strong>never</strong> collected, transmitted, or stored on any server:</p>
+      <div class="perm-list">
+        <div class="perm-row"><span class="perm-icon">👤</span><div class="perm-info"><div class="perm-name">Name, email, or account information</div><div class="perm-reason">No login or account is required to use the App.</div></div></div>
+        <div class="perm-row"><span class="perm-icon">📍</span><div class="perm-info"><div class="perm-name">Location data</div><div class="perm-reason">The App never requests or accesses your location.</div></div></div>
+        <div class="perm-row"><span class="perm-icon">📋</span><div class="perm-info"><div class="perm-name">Contacts, messages, or clipboard</div><div class="perm-reason">The App does not access any of your personal content.</div></div></div>
+        <div class="perm-row"><span class="perm-icon">🎙️</span><div class="perm-info"><div class="perm-name">Microphone or camera</div><div class="perm-reason">No audio or visual data is captured.</div></div></div>
+        <div class="perm-row"><span class="perm-icon">📊</span><div class="perm-info"><div class="perm-name">Usage analytics or behaviour profiling</div><div class="perm-reason">We do not track which buttons you press or how often you use the App.</div></div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">Data Stored Locally on Your Device</h2></div>
+      <p>All preferences you configure in the App (saved AC remotes, theme selection, temperature unit, and vibration strength) are stored exclusively on your device using Android's <code>SharedPreferences</code>. This data never leaves your phone.</p>
+      <p>Uninstalling the App will permanently delete all locally stored preferences.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">Crash Analytics</h2></div>
+      <p>The App uses <strong>anonymous crash reporting</strong> (via Google Play's built-in Android Vitals) to help us identify and fix stability issues. This data:</p>
+      <p>• Is fully anonymous and contains no personally identifiable information.<br>
+         • Includes only technical crash stack traces, device model, and Android OS version.<br>
+         • Is processed by Google under their standard privacy framework.<br>
+         • Can be opted out of via your device's Google account settings under <em>Data &amp; Privacy → App activity</em>.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">Android Permissions Explained</h2></div>
+      <p>The App requests only the minimum permissions required for its functionality:</p>
+      <div class="perm-list">
+        <div class="perm-row">
+          <span class="perm-icon">📡</span>
+          <div class="perm-info"><div class="perm-name">TRANSMIT_IR</div><div class="perm-reason">Allows the App to use the phone's IR blaster to send signals to your AC unit. This is the core function of the App.</div></div>
+          <span class="perm-badge badge-required">Required</span>
+        </div>
+        <div class="perm-row">
+          <span class="perm-icon">📳</span>
+          <div class="perm-info"><div class="perm-name">VIBRATE</div><div class="perm-reason">Powers the haptic feedback when you press remote buttons. Can be turned off in Settings → Vibration Strength → Off.</div></div>
+          <span class="perm-badge badge-optional">Optional</span>
+        </div>
+        <div class="perm-row">
+          <span class="perm-icon">🌐</span>
+          <div class="perm-info"><div class="perm-name">INTERNET</div><div class="perm-reason">Used solely to check for app updates and to open this Privacy Policy page in your browser. No personal data is transmitted.</div></div>
+          <span class="perm-badge badge-optional">Limited use</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">Third-Party Services</h2></div>
+      <p>The App integrates with <strong>Google Play In-App Updates</strong> to deliver seamless updates. This integration is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">Google's Privacy Policy</a>. No additional third-party SDKs, advertising networks, or analytics platforms are embedded in the App.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">Children's Privacy</h2></div>
+      <p>The App does not knowingly collect any information from children under the age of 13. Since no personal data is collected from any user, the App is safe for general audiences.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">8</div><h2 class="section-title">Changes to This Policy</h2></div>
+      <p>If we make any material changes to this Privacy Policy, we will update the effective date at the top of this page. We encourage you to review this page periodically. Continued use of the App after any changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div class="section-num">9</div><h2 class="section-title">Contact Us</h2></div>
+      <div class="contact-box">
+        <p>Have questions about this Privacy Policy? We'd love to hear from you.</p>
+        <p><strong>Karyanest Softwares</strong><br><a href="https://unicsam.github.io">unicsam.github.io</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Karyanest Softwares. All rights reserved. &nbsp;·&nbsp; Omni: Universal AC Remote</p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('themeBtn');
+    const body = document.body;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) { body.classList.add('dark'); btn.textContent = '☀️'; }
+    btn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      btn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
