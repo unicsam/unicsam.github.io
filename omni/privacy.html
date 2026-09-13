@@ -314,7 +314,7 @@
     <p><strong>None.</strong> We do not collect device identifiers, IMEI, advertising IDs, MAC addresses, or IP addresses.</p>
 
     <h3>C. Usage &amp; Analytics Data</h3>
-    <p><strong>None.</strong> We do not embed analytics SDKs (such as Google Analytics or Firebase Analytics). We do not record remote button presses, temperature choices, or session duration.</p>
+    <p><strong>Crash Analytics &amp; Diagnostics Only:</strong> We do not track user behavior, remote button presses, or session activity. To monitor app stability and fix technical bugs, anonymous crash reports and stack traces may be collected via Google Play Console and Crash Analytics services. These diagnostic logs contain technical details (such as device model, OS version, and crash stack trace) and contain zero personal identifiers.</p>
 
     <h3>D. Location Data</h3>
     <p><strong>None.</strong> The app does not request, access, or track GPS or network location data.</p>
@@ -351,9 +351,10 @@
     </table>
 
     <h2>6. Third-Party Services &amp; SDKs</h2>
-    <p>The app contains <strong>zero third-party advertising or analytics SDKs</strong>. It integrates only the official Google Play library for updates:</p>
+    <p>The app contains <strong>zero third-party advertising or marketing SDKs</strong>. It integrates only official Google Play services for maintenance and stability:</p>
     <ul>
       <li><strong>Google Play In-App Update API (<code>play:app-update</code>):</strong> Enables checking for app updates directly through Google Play.</li>
+      <li><strong>Google Play Crash Analytics &amp; Android Vitals:</strong> Collects anonymous crash stack traces and diagnostic logs to help developers investigate crashes and improve performance.</li>
     </ul>
     <p>Any interactions with Google Play services are governed by the <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent); text-decoration: none;">Google Privacy Policy</a>.</p>
 
