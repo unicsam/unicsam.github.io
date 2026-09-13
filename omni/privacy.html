@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Omni Universal AC Remote</title>
-  <meta name="description" content="Official Google Play Compliant Privacy Policy for Omni Universal AC Remote by Karyanest Softwares. 100% offline, zero ads, zero tracking.">
+  <meta name="description" content="Official Google Play Compliant Privacy Policy for Omni Universal AC Remote by Karyanest Softwares.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,10 +14,9 @@
       --bg-subtle: #f8fafc;
       --card-bg: #ffffff;
       --text: #0f172a;
-      --text-secondary: #64748b;
+      --text-secondary: #475569;
       --border: #e2e8f0;
-      --accent: #0284c7;
-      --accent-dim: #e0f2fe;
+      --accent: #2563eb;
     }
 
     body.dark {
@@ -28,7 +27,6 @@
       --text-secondary: #94a3b8;
       --border: #1f293d;
       --accent: #38bdf8;
-      --accent-dim: #082f49;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,14 +47,13 @@
       z-index: 100;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
-      transition: background 0.2s, border-color 0.2s;
     }
 
     .nav {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 0 24px;
-      height: 60px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -66,39 +63,23 @@
       text-decoration: none;
       color: var(--text);
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.95rem;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
     .nav-brand img {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
     }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-link {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.15s;
-    }
-
-    .nav-link:hover { color: var(--text); }
 
     .theme-btn {
       background: none;
       border: 1px solid var(--border);
-      width: 34px; height: 34px;
-      border-radius: 8px;
+      width: 32px; height: 32px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -115,285 +96,294 @@
     body.dark .icon-moon { display: none; }
 
     main {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 100px 24px 80px;
     }
 
-    .doc-header {
-      padding: 24px 0 24px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 36px;
-    }
-
-    .doc-header h1 {
-      font-size: 2.5rem;
+    h1 {
+      font-size: 2.2rem;
       font-weight: 800;
       letter-spacing: -0.03em;
-      color: var(--text);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    .doc-meta {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .section {
-      margin-bottom: 36px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-num {
-      width: 26px;
-      height: 26px;
-      background: var(--accent-dim);
-      color: var(--accent);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .section-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.01em;
-    }
-
-    .section p {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      margin-bottom: 12px;
-      line-height: 1.75;
-    }
-
-    .section ul {
-      margin: 8px 0 16px 24px;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-    }
-
-    .section li {
       margin-bottom: 6px;
+      line-height: 1.2;
     }
 
-    .perm-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 8px;
+    .app-meta {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
     }
 
-    .perm-row {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
+    .badge {
+      display: inline-flex;
       align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
+      gap: 6px;
       background: var(--bg-subtle);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
     }
 
-    .perm-icon { font-size: 20px; }
-    .perm-name { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-    .perm-reason { font-size: 0.85rem; color: var(--text-secondary); }
-    .perm-badge { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4px; padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
-    .badge-required { background: #fef3c7; color: #92400e; }
-    body.dark .badge-required { background: #451a03; color: #fbbf24; }
-    .badge-optional { background: var(--accent-dim); color: var(--accent); }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
 
-    .contact-card {
+    .highlight-card {
       background: var(--bg-subtle);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 24px;
-      font-size: 0.95rem;
+      margin: 24px 0 36px;
     }
 
-    .contact-card a {
+    .highlight-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .highlight-card p {
+      margin-bottom: 0;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    p strong {
+      color: var(--text);
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul li {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
       color: var(--accent);
-      text-decoration: none;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text);
       font-weight: 600;
     }
-    .contact-card a:hover { text-decoration: underline; }
+
+    td {
+      color: var(--text-secondary);
+    }
 
     hr {
       border: none;
       border-top: 1px solid var(--border);
-      margin: 48px 0 24px;
+      margin: 40px 0;
     }
 
     footer {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
     }
 
     footer a {
       color: var(--text-secondary);
       text-decoration: none;
     }
-    footer a:hover { color: var(--text); }
 
-    @media (max-width: 640px) {
-      .doc-header h1 { font-size: 2rem; }
-      .perm-row { grid-template-columns: auto 1fr; }
-      .perm-badge { grid-column: 2; justify-self: start; }
-      footer { flex-direction: column; text-align: center; }
+    footer a:hover {
+      color: var(--text);
     }
   </style>
 </head>
 <body>
+
   <header>
-    <nav class="nav">
-      <a class="nav-brand" href="index.html">
-        <img src="icon.png" alt="Omni Universal AC Remote">
-        <span>Omni AC Remote</span>
+    <div class="nav">
+      <a href="index.html" class="nav-brand">
+        <img src="icon.png" alt="Omni Logo">
+        Omni AC Remote
       </a>
-      <div class="nav-right">
-        <a href="index.html" class="nav-link">Product Overview</a>
-        <a href="../index.html" class="nav-link">Karyanest Softwares</a>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" style="text-decoration: none; color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Home</a>
         <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-          <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
         </button>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main>
-    <div class="doc-header">
-      <h1>Privacy Policy</h1>
-      <div class="doc-meta">
-        <span><strong>Application:</strong> Omni Universal AC Remote</span>
-        <span><strong>Package:</strong> <code>ac.remote</code></span>
-        <span><strong>Developer:</strong> Karyanest Softwares</span>
-        <span><strong>Effective:</strong> September 13, 2026</span>
-      </div>
+    <h1>Privacy Policy</h1>
+    <div class="app-meta">
+      <strong>Application:</strong> Omni Universal AC Remote (<code>ac.remote</code>)<br>
+      <strong>Developer:</strong> Karyanest Softwares &bull; Sourav<br>
+      <strong>Effective Date:</strong> September 13, 2026
     </div>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">Introduction &amp; Core Architecture</h2></div>
-      <p>This Privacy Policy applies to the <strong>Omni Universal AC Remote</strong> mobile application ("the App"), developed and maintained by <strong>Karyanest Softwares</strong>.</p>
-      <p>Our engineering philosophy is strictly <strong>offline-first and privacy-respecting</strong>. The App operates as a standalone utility that uses your Android phone's built-in Consumer Infrared (IR) blaster hardware to transmit control signals directly to your air conditioning unit. All signal encoding, protocol state synthesis, and remote configurations are computed locally on your device.</p>
-      <p><strong>We do not collect, store, monetize, share, or sell any personal information or telemetry from our users.</strong></p>
+    <div class="badge">
+      <span class="badge-dot"></span>
+      100% Offline Architecture &bull; Zero Personal Data Collected
     </div>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">Data We Do Not Collect</h2></div>
-      <p>In accordance with Google Play's User Data policy and global privacy regulations, we explicitly declare that the following data categories are <strong>never collected, stored, or transmitted</strong>:</p>
-      <ul>
-        <li><strong>Personal Identifiers:</strong> Names, email addresses, phone numbers, user accounts, or profile data. No login or account creation is required.</li>
-        <li><strong>Location Data:</strong> Precise or approximate GPS, network, or cell tower location.</li>
-        <li><strong>Sensory Data:</strong> Voice recordings, camera feeds, photos, or media files.</li>
-        <li><strong>Personal Content:</strong> Contacts, text messages, clipboard content, or file storage.</li>
-        <li><strong>Behavioral Profiling:</strong> We do not log which buttons you press, what temperature you set, or when you use the remote.</li>
-        <li><strong>Advertising Identifiers:</strong> The App contains zero third-party advertising SDKs, ad networks, or user-tracking libraries.</li>
-      </ul>
+    <div class="highlight-card">
+      <h3>Overview &amp; Core Promise</h3>
+      <p>This Privacy Policy explains how <strong>Omni Universal AC Remote</strong> handles user information. Our architecture is completely offline and privacy-first: <strong>we do not collect, store, transmit, monetize, or share any personal data</strong>. All remote commands operate locally via your phone's built-in Infrared (IR) emitter.</p>
     </div>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">Local On-Device Storage</h2></div>
-      <p>The App stores only basic operational settings locally on your device via standard Android <code>SharedPreferences</code>:</p>
-      <ul>
-        <li>Selected AC brand and active remote profile index.</li>
-        <li>List of saved AC remotes configured by the user.</li>
-        <li>User interface preferences (Light/Dark theme, Celsius/Fahrenheit toggle, Haptic vibration strength).</li>
-      </ul>
-      <p>This information is strictly sandboxed within the application directory on your device and is never uploaded to any remote server. Uninstalling the App permanently purges all stored preferences.</p>
-    </div>
+    <h2>1. Who We Are</h2>
+    <p>Omni Universal AC Remote is developed and published by <strong>Karyanest Softwares</strong> (founded by Sourav). We build privacy-focused, offline-first software utilities without cloud dependencies, ad trackers, or subscriptions.</p>
+    <ul>
+      <li><strong>Website:</strong> <a href="https://unicsam.github.io" style="color: var(--accent); text-decoration: none;">https://unicsam.github.io</a></li>
+      <li><strong>Contact Email:</strong> <a href="mailto:Karyanest@gmail.com" style="color: var(--accent); text-decoration: none;">Karyanest@gmail.com</a></li>
+    </ul>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">Android System Permissions</h2></div>
-      <p>The App requests only the minimal set of operating system permissions strictly necessary to perform its functions:</p>
-      <div class="perm-list">
-        <div class="perm-row">
-          <span class="perm-icon">📡</span>
-          <div class="perm-info">
-            <div class="perm-name">TRANSMIT_IR (android.permission.TRANSMIT_IR)</div>
-            <div class="perm-reason">Enables the app to emit modulated infrared pulses via your phone's built-in IR blaster to communicate with your air conditioner.</div>
-          </div>
-          <span class="perm-badge badge-required">Required</span>
-        </div>
-        <div class="perm-row">
-          <span class="perm-icon">📳</span>
-          <div class="perm-info">
-            <div class="perm-name">VIBRATE (android.permission.VIBRATE)</div>
-            <div class="perm-reason">Powers tactile haptic vibration when physical remote buttons are pressed. Can be adjusted or completely disabled in App Settings.</div>
-          </div>
-          <span class="perm-badge badge-optional">Optional</span>
-        </div>
-        <div class="perm-row">
-          <span class="perm-icon">🌐</span>
-          <div class="perm-info">
-            <div class="perm-name">INTERNET (android.permission.INTERNET)</div>
-            <div class="perm-reason">Used exclusively to query Google Play In-App Updates for newly released versions and to launch this Privacy Policy document in your web browser. No telemetry or personal data is transmitted.</div>
-          </div>
-          <span class="perm-badge badge-optional">Update Verification</span>
-        </div>
-      </div>
-    </div>
+    <h2>2. Scope of This Policy</h2>
+    <p>This Privacy Policy applies solely to the <strong>Omni Universal AC Remote</strong> mobile application (Package Name: <code>ac.remote</code>) distributed via Google Play Store and official channels.</p>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">Third-Party Services &amp; Google Play</h2></div>
-      <p>The App utilizes the official <strong>Google Play In-App Update API</strong> to notify users when a critical stability update is available. Interactions with the Google Play Store are governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--accent);">Google Privacy Policy</a>.</p>
-      <p>No other third-party SDKs, marketing trackers, analytics providers, or external data brokers are integrated into the App.</p>
-    </div>
+    <h2>3. Information We Collect</h2>
+    
+    <h3>A. Personal Information</h3>
+    <p><strong>None.</strong> We do not collect names, email addresses, phone numbers, user accounts, or profile data. No login or registration is required to use any feature of the app.</p>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">Children's Privacy (COPPA &amp; GDPR-K)</h2></div>
-      <p>Omni Universal AC Remote is a general utility intended for household appliance management. We do not knowingly collect, solicit, or process personal information from children under the age of 13 (or under 16 in applicable European jurisdictions), in strict compliance with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policies.</p>
-    </div>
+    <h3>B. Device Information</h3>
+    <p><strong>None.</strong> We do not collect device identifiers, IMEI, advertising IDs, MAC addresses, or IP addresses.</p>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">California Consumer Privacy Act (CCPA / CPRA)</h2></div>
-      <p>Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), California residents are entitled to know what personal data is collected, sold, or disclosed. Because Omni Universal AC Remote does not collect, retain, sell, or share personal data with any third party, our practices inherently satisfy all CCPA and CPRA compliance mandates.</p>
-    </div>
+    <h3>C. Usage &amp; Analytics Data</h3>
+    <p><strong>None.</strong> We do not embed analytics SDKs (such as Google Analytics or Firebase Analytics). We do not record remote button presses, temperature choices, or session duration.</p>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">8</div><h2 class="section-title">Changes to This Privacy Policy</h2></div>
-      <p>We may update this Privacy Policy from time to time to reflect functional improvements, legal requirements, or platform policy revisions. Any modifications will be posted immediately on this page with an updated "Effective Date".</p>
-    </div>
+    <h3>D. Location Data</h3>
+    <p><strong>None.</strong> The app does not request, access, or track GPS or network location data.</p>
 
-    <div class="section">
-      <div class="section-header"><div class="section-num">9</div><h2 class="section-title">Contact Information</h2></div>
-      <div class="contact-card">
-        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our software privacy practices, please contact us at:</p>
-        <p style="margin-top: 10px;"><strong>Karyanest Softwares</strong><br>
-        Developer Website: <a href="https://unicsam.github.io" target="_blank">https://unicsam.github.io</a><br>
-        Repository / Documentation: <a href="https://github.com/unicsam" target="_blank">https://github.com/unicsam</a></p>
-      </div>
-    </div>
+    <h3>E. Hardware &amp; Sensor Data</h3>
+    <p>The app only requests access to the phone's built-in Infrared (IR) emitter hardware to transmit remote control signals to your air conditioner.</p>
+
+    <h2>4. How We Use Your Information</h2>
+    <p>Because no personal information is collected, we do not use, profile, or monetize any user data. All configuration settings (such as saved AC brand, temperature unit preference, and dark mode) are stored strictly locally on your device using Android's private <code>SharedPreferences</code> sandbox.</p>
+
+    <h2>5. Permissions Justification</h2>
+    <p>Google Play requires transparent disclosure of all Android permissions declared in the application manifest:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Permission</th>
+          <th>Usage &amp; Purpose</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>android.permission.TRANSMIT_IR</code></td>
+          <td>Used to transmit infrared beam pulses from your phone's built-in IR blaster to the air conditioner receiver.</td>
+          <td>Required for remote transmission</td>
+        </tr>
+        <tr>
+          <td><code>android.permission.VIBRATE</code></td>
+          <td>Provides tactile haptic vibration feedback when buttons are tapped. Can be adjusted in Settings.</td>
+          <td>Optional UX enhancement</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>6. Third-Party Services &amp; SDKs</h2>
+    <p>The app contains <strong>zero third-party advertising or analytics SDKs</strong>. It integrates only the official Google Play library for updates:</p>
+    <ul>
+      <li><strong>Google Play In-App Update API (<code>play:app-update</code>):</strong> Enables checking for app updates directly through Google Play.</li>
+    </ul>
+    <p>Any interactions with Google Play services are governed by the <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent); text-decoration: none;">Google Privacy Policy</a>.</p>
+
+    <h2>7. Data Storage &amp; Retention</h2>
+    <p>All application state preferences are stored locally in private application storage on your device. We do not operate external cloud servers or databases. All local preferences are deleted immediately when you clear app data or uninstall the app from Android Settings.</p>
+
+    <h2>8. Children's Privacy (COPPA Compliance)</h2>
+    <p>Omni Universal AC Remote does not collect personal information from children or any other users, in compliance with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policy.</p>
+
+    <h2>9. Legal Compliance (GDPR &amp; CCPA)</h2>
+    <p>Because our application operates entirely on-device without collecting, storing, or transmitting personal data, we do not share, sell, or transfer any personal data under the General Data Protection Regulation (GDPR) or California Consumer Privacy Act (CCPA).</p>
+
+    <h2>10. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any revisions will be published on this page with an updated "Effective Date" at the top.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>If you have any questions or feedback regarding this Privacy Policy, please contact us:</p>
+    <ul>
+      <li><strong>Developer:</strong> Sourav (Karyanest Softwares)</li>
+      <li><strong>Email:</strong> <a href="mailto:Karyanest@gmail.com" style="color: var(--accent); text-decoration: none;">Karyanest@gmail.com</a></li>
+      <li><strong>Website:</strong> <a href="https://unicsam.github.io" style="color: var(--accent); text-decoration: none;">https://unicsam.github.io</a></li>
+    </ul>
 
     <hr>
 
     <footer>
-      <div>&copy; 2026 Karyanest Softwares &bull; Sourav</div>
+      <div>&copy; 2026 Karyanest Softwares. All rights reserved.</div>
       <div>
-        <a href="index.html">Product Overview</a> &bull;
-        <a href="../index.html">unicsam.github.io</a>
+        <a href="index.html">App Home</a> &bull;
+        <a href="https://unicsam.github.io">All Apps</a>
       </div>
     </footer>
   </main>
