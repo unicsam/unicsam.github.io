@@ -137,6 +137,19 @@
       flex: 1;
     }
 
+    .hero-brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a73e8;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    body.dark .hero-brand {
+      color: #8ab4f8;
+    }
+
     .hero-text h1 {
       font-size: 2.5rem;
       font-weight: 700;
@@ -162,7 +175,7 @@
 
     .playstore-link {
       display: inline-block;
-      height: 40px;
+      height: 48px;
     }
 
     .playstore-link img {
@@ -181,7 +194,7 @@
       width: 220px;
       height: 220px;
       border-radius: 44px;
-      object-fit: contain;
+      object-fit: cover;
       box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.18), 0 0 0 1px var(--border);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -370,6 +383,7 @@
 
     <section class="hero">
       <div class="hero-text">
+        <div class="hero-brand">TVLink</div>
         <h1>Universal Android TV Remote</h1>
         <p>A fast, local remote control for your Android TV and Fire TV. Control navigation, type text, trigger voice search, and sync media status — all over your local network.</p>
         <div class="hero-actions">
@@ -398,8 +412,24 @@
           <p>Uses official pairing certificates to establish an encrypted TLS connection directly between your phone and your TV.</p>
         </div>
         <div class="cap-card">
-          <h3>Instant Touchpad & D-Pad</h3>
-          <p>Navigate layouts using a physical D-pad design or a large touch gesture swipe area. Adjustable touch sensitivities.</p>
+          <h3>Instant D-Pad</h3>
+          <p>Navigate Android TV interfaces seamlessly with an intuitive, responsive 5-way directional pad and center select button.</p>
+        </div>
+        <div class="cap-card">
+          <h3>Swipe-Pad</h3>
+          <p>Glide through menus, long lists, and content screens effortlessly using smooth, fluid multi-directional touch gestures.</p>
+        </div>
+        <div class="cap-card">
+          <h3>App Shortcuts</h3>
+          <p>Instantly launch installed streaming apps, media hubs, and settings directly from quick-access shortcut buttons.</p>
+        </div>
+        <div class="cap-card">
+          <h3>Custom Shortcuts</h3>
+          <p>Personalize your remote layout with one-tap custom keybindings, favorites, and frequently used commands.</p>
+        </div>
+        <div class="cap-card">
+          <h3>Schedule Actions</h3>
+          <p>Automate TV controls with timed events — schedule power off, sleep timers, or periodic input switches hands-free.</p>
         </div>
         <div class="cap-card">
           <h3>Sync Keyboard Entry</h3>
@@ -408,6 +438,14 @@
         <div class="cap-card">
           <h3>Voice Commands</h3>
           <p>Press the microphone button to dictate commands, launch apps, or perform voice search directly on your Android TV.</p>
+        </div>
+        <div class="cap-card">
+          <h3>Turn On TV Reliably</h3>
+          <p>Power on your television straight from your phone with robust wake capabilities, even when other remote apps fail to connect.</p>
+        </div>
+        <div class="cap-card">
+          <h3>Launch URL Directly</h3>
+          <p>Send and open web links, streaming URLs, and media streams directly onto your TV's browser or compatible player in one tap.</p>
         </div>
         <div class="cap-card">
           <h3>Media Session Syncing</h3>
