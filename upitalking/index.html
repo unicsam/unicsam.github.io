@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Talking Machine — Real-Time Payment Voice Confirmation Soundbox</title>
+  <meta name="description" content="Turn any Android phone into an instant UPI payment talking machine soundbox. Real-time multilingual voice confirmations for PhonePe, Paytm, Google Pay, BHIM & more. By Karyanest Softwares.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --btn-primary-bg: #0f172a;
+      --btn-primary-text: #ffffff;
+    }
+
+    body.dark {
+      --bg: #0b0f17;
+      --bg-subtle: #111827;
+      --card-bg: #141c29;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1f293d;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --btn-primary-bg: #f8fafc;
+      --btn-primary-text: #0b0f17;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover { color: var(--text); }
+
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .theme-btn:hover { border-color: var(--text-secondary); color: var(--text); }
+    .theme-btn svg { width: 18px; height: 18px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    body.dark .icon-sun { display: block; }
+    body.dark .icon-moon { display: none; }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 24px 64px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 0 60px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--accent) 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+    }
+
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover { background: var(--bg-subtle); border-color: var(--text-secondary); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 64px 0;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer a { color: var(--text-secondary); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="https://www.karyanest.com" class="nav-brand">
+        <span>Karyanest Softwares</span>
+      </a>
+      <div class="nav-links">
+        <a href="privacy.html" class="nav-link">Privacy Policy</a>
+        <a href="mailto:support@karyanest.com" class="nav-link">Support</a>
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="badge">100% On-Device &bull; No Hardware Rental Fee</div>
+      <h1>Turn Any Phone Into a <span>UPI Soundbox</span></h1>
+      <p class="hero-subtitle">
+        Instant real-time payment voice confirmations in Hindi, Bengali, Assamese, and English. Supports PhonePe, Paytm, Google Pay, BHIM, and WhatsApp Pay.
+      </p>
+      <div class="btn-group">
+        <a href="privacy.html" class="btn btn-outline">Read Privacy Policy</a>
+        <a href="mailto:support@karyanest.com" class="btn btn-primary">Contact Support</a>
+      </div>
+    </section>
+
+    <div class="features-grid">
+      <div class="card">
+        <div class="card-icon">🔊</div>
+        <h3>Loud & Clear Voice</h3>
+        <p>Pre-recorded Indian numbering system audio ensures zero-lag, crystal-clear payment announcements over phone or external Bluetooth speaker.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Zero Hardware Rental</h3>
+        <p>Save monthly device rental charges. Any spare Android phone or shop counter device becomes your dedicated UPI soundbox machine.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>100% Private & On-Device</h3>
+        <p>All notification processing and transaction bookkeeping happen strictly on your device. No financial data is ever uploaded or shared.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Daily Ledger & Statements</h3>
+        <p>Review total daily collections, detect potential fake or duplicate alerts with built-in scam analysis, and export records directly to CSV.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Karyanest Softwares. Built for Indian Merchants.</span>
+    <div style="display: flex; gap: 16px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:support@karyanest.com">support@karyanest.com</a>
+      <a href="https://www.karyanest.com">karyanest.com</a>
+    </div>
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById('themeBtn');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && prefersDark)) {
+      document.body.classList.add('dark');
+    }
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+    });
+  </script>
+</body>
+</html>

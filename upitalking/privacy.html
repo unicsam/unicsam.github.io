@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — UPI Talking Machine</title>
+  <meta name="description" content="Official Google Play Compliant Privacy Policy for UPI Talking Machine by Karyanest Softwares.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-secondary: #475569;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+    }
+
+    body.dark {
+      --bg: #0b0f17;
+      --bg-subtle: #111827;
+      --card-bg: #141c29;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1f293d;
+      --accent: #38bdf8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.75;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .theme-btn:hover { border-color: var(--text-secondary); color: var(--text); }
+    .theme-btn svg { width: 16px; height: 16px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    body.dark .icon-sun { display: block; }
+    body.dark .icon-moon { display: none; }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 96px 24px 64px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .highlight-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 36px;
+    }
+
+    .highlight-card p {
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 32px 0 12px;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    li { margin-bottom: 8px; }
+
+    strong { color: var(--text); }
+
+    .permission-item {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    .permission-item strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .permission-item p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    footer {
+      max-width: 800px;
+      margin: 48px auto 0;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="https://www.karyanest.com" class="nav-brand">
+        <span>Karyanest Softwares</span>
+      </a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="badge">Google Play Compliant Policy</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">
+      <strong>UPI Talking Machine</strong> (<code>com.vibe.upitalking</code>) &bull; Published by <strong>Karyanest Softwares</strong> &bull; Effective Date: September 30, 2026
+    </div>
+
+    <div class="highlight-card">
+      <p>🛡️ <strong>Zero Data Transmission Commitment:</strong> UPI Talking Machine is designed from the ground up to protect your business privacy. All notification parsing, transaction logging, and voice synthesis happen <strong>100% locally on your device</strong>. No financial transaction details, bank account numbers, customer names, or voice audio are ever sent to remote servers or third parties.</p>
+    </div>
+
+    <h2>1. Overview and Purpose</h2>
+    <p>UPI Talking Machine is a merchant utility application developed by <strong>Karyanest Softwares</strong>. It functions as an on-device digital payment soundbox, converting incoming UPI payment notification alerts into clear, spoken voice confirmations in multiple Indian languages (including Hindi, Bengali, Assamese, and English). This enables shopkeepers and merchants to verify customer payments instantly without unlocking their phones.</p>
+
+    <h2>2. Information Collection and Processing</h2>
+    <p>We believe in absolute data minimization. UPI Talking Machine does not maintain user accounts, does not collect personal identifiers, and does not transmit data over the internet.</p>
+
+    <h3>2.1 Notification Access (BIND_NOTIFICATION_LISTENER_SERVICE)</h3>
+    <div class="permission-item">
+      <strong>Prominent Disclosure: Notification Listener Permission</strong>
+      <p>To announce payment confirmations out loud, the app requires permission to observe incoming system notifications. When granted:</p>
+      <ul>
+        <li><strong>Strict Targeting:</strong> The listener filters notifications exclusively from recognized UPI and banking applications (e.g., PhonePe, Google Pay, Paytm, BHIM, WhatsApp Pay).</li>
+        <li><strong>Local In-Memory Parsing:</strong> Only the transaction amount and merchant/app details are extracted to construct the voice sequence.</li>
+        <li><strong>Zero Message Interception:</strong> Personal messages, private chats, passwords, One-Time Passwords (OTPs), and unrelated app alerts are automatically ignored and never logged.</li>
+        <li><strong>Strictly On-Device:</strong> Notification contents are processed locally in real time and are never transmitted over the network.</li>
+      </ul>
+    </div>
+
+    <h3>2.2 Local Database Storage</h3>
+    <p>The app stores captured transaction history in an isolated, private Room/SQLite database on your local device storage. This allows merchants to:</p>
+    <ul>
+      <li>Review daily, weekly, or monthly transaction totals.</li>
+      <li>Distinguish legitimate customer payments from potential ghost/scam alerts.</li>
+      <li>Export statements directly to CSV for bookkeeping.</li>
+      <li>Clear or permanently delete transaction logs at any time via the in-app interface.</li>
+    </ul>
+
+    <h2>3. Android System Permissions</h2>
+    <p>The application requests only permissions essential for its core soundbox operation:</p>
+
+    <div class="permission-item">
+      <strong>Notification Listener (android.permission.BIND_NOTIFICATION_LISTENER_SERVICE)</strong>
+      <p>Required to detect payment receipts from supported UPI merchant apps in real time.</p>
+    </div>
+
+    <div class="permission-item">
+      <strong>Battery Optimization Exclusion (android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)</strong>
+      <p>Crucial for 24/7 soundbox operation. OEM power savers frequently kill background listeners, which causes missed payment announcements. This permission prevents premature OS termination.</p>
+    </div>
+
+    <div class="permission-item">
+      <strong>Post Notifications (android.permission.POST_NOTIFICATIONS)</strong>
+      <p>Used to display persistent service status and playback controls on Android 13+ devices.</p>
+    </div>
+
+    <div class="permission-item">
+      <strong>Start at Boot (android.permission.RECEIVE_BOOT_COMPLETED)</strong>
+      <p>Automatically restarts the soundbox listening engine whenever the device is rebooted, ensuring continuous merchant coverage.</p>
+    </div>
+
+    <h2>4. Third-Party Services</h2>
+    <p>The app integrates only minimal, trusted platform SDKs:</p>
+    <ul>
+      <li><strong>Google Play In-App Updates:</strong> Ensures users receive critical bug fixes and version updates promptly via official Google Play channels.</li>
+      <li><strong>Google Text-to-Speech (TTS):</strong> Utilized on-device for synthesized voice announcements in selected languages.</li>
+    </ul>
+    <p>Neither third-party service receives payment credentials or financial records from UPI Talking Machine.</p>
+
+    <h2>5. Data Security & Retention</h2>
+    <p>All local transaction logs are protected by Android's sandbox isolation and cannot be accessed by other installed apps. Uninstalling the app permanently purges all local databases and transaction histories from your device.</p>
+
+    <h2>6. Children's Privacy</h2>
+    <p>UPI Talking Machine is intended for adult business merchants and shop owners. We do not knowingly collect information from children under the age of 13.</p>
+
+    <h2>7. Policy Updates</h2>
+    <p>We may update this Privacy Policy to reflect app enhancements or statutory requirements. Changes will be posted to this page with an updated Effective Date.</p>
+
+    <h2>8. Contact Us</h2>
+    <p>If you have questions, feedback, or data privacy inquiries regarding UPI Talking Machine, please reach out to us:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:support@karyanest.com">support@karyanest.com</a></li>
+      <li><strong>Website:</strong> <a href="https://www.karyanest.com" target="_blank" rel="noopener">www.karyanest.com</a></li>
+      <li><strong>Publisher:</strong> Karyanest Softwares</li>
+    </ul>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Karyanest Softwares. All rights reserved.</span>
+    <span><a href="https://www.karyanest.com">www.karyanest.com</a></span>
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById('themeBtn');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && prefersDark)) {
+      document.body.classList.add('dark');
+    }
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+    });
+  </script>
+</body>
+</html>
