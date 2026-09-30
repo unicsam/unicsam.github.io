@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy â€” Android TV ADB Remote</title>
+  <meta name="description" content="Privacy Policy for Android TV ADB Remote (com.tvlink.remote.adb) by Karyanest Softwares. Explaining permissions, local network operations, and data handling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f7f7f7;
+      --text: #171717;
+      --text-secondary: #737373;
+      --border: #e5e5e5;
+    }
+
+    body.dark {
+      --bg: #0a0a0a;
+      --bg-subtle: #141414;
+      --text: #ededed;
+      --text-secondary: #a3a3a3;
+      --border: #262626;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .theme-btn:hover { border-color: var(--text-secondary); color: var(--text); }
+    .theme-btn svg { width: 16px; height: 16px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    body.dark .icon-sun { display: block; }
+    body.dark .icon-moon { display: none; }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .app-name {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--text);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 64px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="https://www.karyanest.com" class="nav-brand">Karyanest Softwares</a>
+      <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <div class="app-name">Android TV ADB Remote (com.tvlink.remote.adb)</div>
+    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px; font-weight: 500;">Last Updated: September 30, 2026</div>
+
+    <div class="highlight-box">
+      <p>Android TV ADB Remote is designed as a direct local utility. Remote commands, navigation gestures, and settings are processed entirely on your local Wi-Fi network and never leave your home environment.</p>
+    </div>
+
+    <p>This Privacy Policy explains how <strong>Karyanest Softwares</strong> ("we", "us", or "our") handles device permissions, user data, and privacy within the <strong>Android TV ADB Remote</strong> mobile application.</p>
+
+    <h2>1. Data Safety & Local Processing</h2>
+    <ul>
+      <li><strong>No Personal Information Collected:</strong> We do not collect, store, or sell personal identifiers such as your name, email address, physical address, phone number, or geolocation.</li>
+      <li><strong>Direct Local Network Operation:</strong> All remote control actions (D-Pad navigation, volume adjustment, media playback, number pad entries, and text typing) are transmitted directly between your phone and your television over your local home network (Wi-Fi). These control signals are processed exclusively in volatile memory and are never transmitted to external cloud servers.</li>
+      <li><strong>Zero Keystroke Logging:</strong> Any keyboard input sent to your TV is processed on-the-fly and never stored, logged, or recorded.</li>
+    </ul>
+
+    <h2>2. Permissions and Their Usage</h2>
+    <p>The Application requests only the essential permissions required to deliver reliable TV remote functionality:</p>
+    <ul>
+      <li><strong>Local Network & Wi-Fi Access (INTERNET, ACCESS_NETWORK_STATE, ACCESS_WIFI_STATE, CHANGE_WIFI_MULTICAST_STATE):</strong> Required to discover compatible smart TVs on your home network and send control commands directly to the TV's network port.</li>
+      <li><strong>Bluetooth Permissions (BLUETOOTH_CONNECT, BLUETOOTH_SCAN, BLUETOOTH_ADVERTISE):</strong> Used solely to power on and wake compatible smart TVs from standby sleep mode, and to operate the optional on-screen Air Mouse / trackpad pointer via Bluetooth HID. Bluetooth is never used for location tracking or user profiling.</li>
+      <li><strong>Haptic Vibration (VIBRATE):</strong> Used to provide subtle physical touch feedback when tapping remote buttons.</li>
+      <li><strong>No Microphone Access:</strong> This application does not require or request microphone or audio recording permissions.</li>
+    </ul>
+
+    <h2>3. Third-Party Services & Diagnostics</h2>
+    <p>To ensure application stability, diagnose unexpected crashes, and support ongoing development, the App integrates standard Google services:</p>
+    <ul>
+      <li><strong>Google AdMob:</strong> Serves advertisements to support the free version of the application. AdMob may process non-personal device identifiers and advertising telemetry in accordance with <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's Advertising Policies</a>.</li>
+      <li><strong>Google Firebase (Crashlytics & Analytics):</strong> Collects anonymous crash logs, device hardware models, and app performance metrics to help us fix bugs and improve performance. No personally identifiable data is gathered.</li>
+    </ul>
+
+    <h2>4. In-App Purchases & Payments</h2>
+    <p>Any optional upgrades, ad-free access, or Pro feature passes are processed exclusively through <strong>Google Play In-App Billing</strong>. We do not receive, process, or store credit card numbers, bank details, UPI information, or payment credentials. All billing is handled directly by Google Play.</p>
+    <p><strong>Developer Entity:</strong> Karyanest Softwares</p>
+
+    <h2>5. Children's Privacy</h2>
+    <p>The Application is a general utility tool and is not directed to children under 13 years of age. We do not knowingly collect personal information from children.</p>
+
+    <h2>6. Changes to this Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+
+    <h2>7. Contact Information</h2>
+    <p>If you have any questions, feedback, or concerns regarding this Privacy Policy or your data privacy, please contact our support team at:</p>
+    <p><strong>Email:</strong> <a href="mailto:support@karyanest.com" style="color: inherit; font-weight: 500;">support@karyanest.com</a></p>
+    <p><strong>Website:</strong> <a href="https://www.karyanest.com" target="_blank" rel="noopener" style="color: inherit; font-weight: 500;">www.karyanest.com</a></p>
+
+    <footer>
+      &copy; 2026 Karyanest Softwares. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.body.classList.add('dark');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

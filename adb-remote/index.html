@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Android TV ADB Remote â€” by Karyanest Softwares</title>
+  <meta name="description" content="Ultra-responsive Network ADB remote for Android TV and Fire TV. Zero lag, direct IP connection, full D-pad, keyboard, and Air Mouse pointer support.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --text: #0f172a;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --card-bg: #ffffff;
+    }
+
+    body.dark {
+      --bg: #090d16;
+      --bg-subtle: #0f172a;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1e293b;
+      --accent: #fb923c;
+      --accent-hover: #f97316;
+      --card-bg: #0f172a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .nav-badge {
+      background: rgba(249, 115, 22, 0.12);
+      color: var(--accent);
+      font-size: 0.725rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover { color: var(--text); }
+
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .theme-btn:hover { border-color: var(--text-secondary); color: var(--text); }
+    .theme-btn svg { width: 16px; height: 16px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    body.dark .icon-sun { display: block; }
+    body.dark .icon-moon { display: none; }
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 130px 24px 60px;
+      text-align: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 13px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.15s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-subtle);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 13px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: border-color 0.15s;
+    }
+
+    .btn-secondary:hover { border-color: var(--text-secondary); }
+
+    .features {
+      max-width: 1080px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: var(--accent); }
+
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    footer a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 8px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="https://www.karyanest.com" class="nav-brand">
+        <span>TV Link</span>
+        <span class="nav-badge">ADB Edition</span>
+      </a>
+      <div class="nav-right">
+        <a href="privacy.html" class="nav-link">Privacy Policy</a>
+        <a href="mailto:support@karyanest.com" class="nav-link">Support</a>
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-pill">âš¡ Direct Network Connection &bull; Port 5555</div>
+    <h1>The Power Remote for Android TV & Fire TV</h1>
+    <p class="hero-sub">Experience instant, zero-lag television control over your home Wi-Fi network. Built for power users who demand fluid responsiveness and full keyboard typing.</p>
+    <div class="cta-group">
+      <a href="https://play.google.com/store/apps/details?id=com.tvlink.remote.adb" class="btn-primary" target="_blank" rel="noopener">
+        <span>Get on Google Play</span>
+      </a>
+      <a href="privacy.html" class="btn-secondary">Read Privacy Policy</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <div class="card-icon">âš¡</div>
+      <h3>Near Zero Latency</h3>
+      <p>Direct TCP socket communication sends directional inputs, volume changes, and playback commands in milliseconds with zero perceptible lag.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">ðŸŽ¯</div>
+      <h3>Air Mouse & Trackpad</h3>
+      <p>Effortlessly navigate sideloaded apps and streaming web browsers with fluid on-screen cursor control powered by Bluetooth HID.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">âŒ¨ï¸</div>
+      <h3>Instant Keyboard Typing</h3>
+      <p>Search YouTube, Netflix, and enter complex passwords in seconds directly from your phone's native keyboard.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Karyanest Softwares &bull; <a href="privacy.html">Privacy Policy</a> &bull; <a href="mailto:support@karyanest.com">support@karyanest.com</a></p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.body.classList.add('dark');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
