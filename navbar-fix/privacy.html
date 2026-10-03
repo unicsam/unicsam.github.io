@@ -4,25 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Broken Navbar Fix</title>
-  <meta name="description" content="Privacy Policy for Broken Navbar Fix by Karyanest Softwares. This app collects no personal data.">
+  <meta name="description" content="Privacy Policy for Broken Navbar Fix by Karyanest Softwares. 100% offline, zero data collection, no internet access.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
-      --bg-subtle: #f7f7f7;
-      --text: #171717;
-      --text-secondary: #737373;
-      --border: #e5e5e5;
+      --bg-subtle: #f8fafc;
+      --text: #0f172a;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --brand: #2563eb;
+      --brand-subtle: #eff6ff;
+      --badge-bg: #ecfdf5;
+      --badge-text: #059669;
+      --badge-border: #a7f3d0;
     }
 
     body.dark {
-      --bg: #0a0a0a;
-      --bg-subtle: #141414;
-      --text: #ededed;
-      --text-secondary: #a3a3a3;
-      --border: #262626;
+      --bg: #0b0f17;
+      --bg-subtle: #131b2a;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1e293b;
+      --brand: #3b82f6;
+      --brand-subtle: #172554;
+      --badge-bg: #064e3b;
+      --badge-text: #34d399;
+      --badge-border: #047857;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,7 +56,7 @@
     }
 
     .nav {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
       padding: 0 24px;
       height: 56px;
@@ -60,13 +70,16 @@
       color: var(--text);
       font-weight: 700;
       font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .theme-btn {
       background: none;
       border: 1px solid var(--border);
-      width: 32px; height: 32px;
-      border-radius: 6px;
+      width: 34px; height: 34px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,69 +96,124 @@
     body.dark .icon-moon { display: none; }
 
     main {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 120px 24px 80px;
+      padding: 104px 24px 80px;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: 1px solid var(--badge-border);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 16px;
     }
 
     h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+      color: var(--text);
     }
 
     .app-name {
-      font-size: 1rem;
+      font-size: 1.0625rem;
       color: var(--text-secondary);
-      margin-bottom: 32px;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .highlight-card {
+      background: var(--brand-subtle);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand);
+      padding: 20px 22px;
+      border-radius: 12px;
+      margin: 24px 0 32px;
+    }
+
+    .highlight-card p {
+      margin-bottom: 0;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: -0.015em;
-      margin-top: 32px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-top: 36px;
       margin-bottom: 12px;
       color: var(--text);
     }
 
     p {
-      font-size: 0.9375rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
       margin-bottom: 16px;
     }
 
     ul {
       padding-left: 20px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       color: var(--text-secondary);
-      font-size: 0.9375rem;
+      font-size: 0.95rem;
     }
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .highlight-box {
-      background: var(--bg-subtle);
-      border-left: 3px solid var(--text);
-      padding: 20px;
-      border-radius: 8px;
-      margin: 24px 0;
-    }
-
-    .highlight-box p {
-      margin-bottom: 0;
+    li strong {
       color: var(--text);
-      font-weight: 500;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text);
+      font-weight: 600;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
     }
 
     footer {
       border-top: 1px solid var(--border);
-      padding-top: 24px;
+      padding-top: 28px;
       margin-top: 64px;
-      font-size: 0.8125rem;
+      font-size: 0.85rem;
       color: var(--text-secondary);
       text-align: center;
     }
@@ -164,42 +232,76 @@
   </header>
 
   <main>
-    <h1>Privacy Policy</h1>
-    <div class="app-name">Broken Navbar Fix</div>
-
-    <div class="highlight-box">
-      <p>Broken Navbar Fix is designed as an offline-first utility. We do not collect, store, upload, track, or share any personal data or usage metrics. Your device settings and key inputs never leave your device.</p>
+    <div class="meta-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      100% Offline • Zero Data Collection
     </div>
 
-    <p>This Privacy Policy describes how we handle device permissions and information within the app.</p>
+    <h1>Privacy Policy</h1>
+    <div class="app-name">Broken Navbar Fix • Effective Date: October 2026</div>
 
-    <h2>1. Accessibility Service API Usage</h2>
-    <p>Broken Navbar Fix requires you to enable the Android <strong>Accessibility Service API</strong>. This is a sensitive permission, and we want to explain exactly how it is used:</p>
+    <div class="highlight-card">
+      <p><strong>Broken Navbar Fix</strong> is designed as a strict, offline-first assistive utility. The application requests <strong>zero internet permissions</strong>. We do not collect, store, transmit, or share any personal data, keystrokes, or screen activity. Your device preferences never leave your phone.</p>
+    </div>
+
+    <h2>1. Prominent Disclosure: AccessibilityService API Usage</h2>
+    <p>To provide navigation capabilities for devices with broken physical, capacitive, or display navigation keys, Broken Navbar Fix requires the Android <strong>AccessibilityService API</strong>. In strict compliance with Google Play Developer Policies, we disclose the following:</p>
     <ul>
-      <li><strong>Purpose:</strong> The API is used strictly to render the custom navigation bar overlay on top of other applications, and to perform standard system navigation commands (Back, Home, Recents, Lock Screen, and the Power Menu dialog).</li>
-      <li><strong>No Monitoring or Data Harvesting:</strong> We do not use the Accessibility API to read your screen content, collect keystrokes, track what applications you open, or harvest any personal information. All actions are triggered solely by your manual taps on our custom navigation buttons.</li>
-      <li><strong>Necessity:</strong> The Android operating system requires Accessibility privileges to draw overlays that can pass touch events through to background apps and to trigger system-level navigation events. Without this permission, the app cannot function.</li>
+      <li><strong>Specific Purpose:</strong> The AccessibilityService API is used exclusively to display the on-screen floating navigation bar overlay and trigger system navigation commands (<strong>Back</strong>, <strong>Home</strong>, and <strong>Recent Apps</strong>) when the user taps on the corresponding buttons.</li>
+      <li><strong>No Data Collection:</strong> The service does <strong>NOT</strong> collect, harvest, store, or transmit any personal or sensitive user information.</li>
+      <li><strong>No Keystroke Monitoring:</strong> The service does <strong>NOT</strong> monitor, record, or intercept user typing, passwords, credentials, or credit card details.</li>
+      <li><strong>No Screen Inspection:</strong> The service does <strong>NOT</strong> read, inspect, or record content displayed on your screen or inside other applications.</li>
+      <li><strong>User Control:</strong> Accessibility privileges are optional and can be enabled or revoked at any time by the user via <em>Android Settings &rarr; Accessibility &rarr; Downloaded apps &rarr; Broken Navbar Fix</em>.</li>
     </ul>
 
-    <h2>2. Information Collection and Sharing</h2>
-    <p>Because we value your privacy, we have enforced strict data boundaries:</p>
+    <h2>2. Zero Network Access (100% Offline Architecture)</h2>
+    <p>Broken Navbar Fix does not request the <code>android.permission.INTERNET</code> permission in its Android Manifest. It is technically and architecturally impossible for the application to transmit data, communicate with external servers, or connect to the internet.</p>
+
+    <h2>3. Permissions Declared &amp; Purpose</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Type</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>AccessibilityService</code></td>
+            <td>System Accessibility</td>
+            <td>Used solely to trigger system Back, Home, and Recents actions on user tap.</td>
+          </tr>
+          <tr>
+            <td><code>android.permission.VIBRATE</code></td>
+            <td>Device Hardware</td>
+            <td>Provides optional haptic feedback vibration when a navigation button is pressed.</td>
+          </tr>
+          <tr>
+            <td><code>android.permission.INTERNET</code></td>
+            <td>Network Access</td>
+            <td><strong>NOT REQUESTED.</strong> App operates completely offline.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>4. Google Play Data Safety Summary</h2>
+    <p>In alignment with the Google Play Console Data Safety declaration:</p>
     <ul>
-      <li><strong>No Personal Information:</strong> We do not collect names, email addresses, IP addresses, location data, or device identifiers.</li>
-      <li><strong>No Tracking:</strong> The app does not track your location, app usage patterns, or screen-on time in the background.</li>
-      <li><strong>No Data Sharing:</strong> Since we do not collect any data, no information is shared, sold, or distributed to third parties, advertisers, or analytics networks.</li>
+      <li><strong>Data Collected:</strong> No data collected.</li>
+      <li><strong>Data Shared:</strong> No data shared with third parties.</li>
+      <li><strong>Advertising &amp; Trackers:</strong> Zero ads, zero third-party SDKs, zero analytics trackers.</li>
+      <li><strong>Security:</strong> All configuration parameters (e.g. button sizes, colors, transparency) are saved locally within Android's private DataStore / SharedPreferences sandbox.</li>
     </ul>
 
-    <h2>3. Advertising and Analytics</h2>
-    <p>Broken Navbar Fix is completely <strong>Ad-Free</strong>. We do not integrate third-party ad networks, tracking SDKs, or analytics software. Your app experience is clean and private.</p>
-
-    <h2>4. Data Security</h2>
-    <p>All settings and configuration choices are stored locally on your device using Android's secure SharedPreferences system. Your preferences are protected by the operating system's native application sandbox.</p>
-
-    <h2>5. Changes to This Privacy Policy</h2>
-    <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page, and the "Effective Date" at the top of the policy will be updated accordingly.</p>
+    <h2>5. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any revisions will be reflected on this page with an updated Effective Date.</p>
 
     <h2>6. Contact Us</h2>
-    <p>If you have any questions or feedback regarding this Privacy Policy, please feel free to reach out to us via email at: <a href="mailto:Karyanest@gmail.com" style="color: inherit;">Karyanest@gmail.com</a>.</p>
+    <p>If you have any questions or feedback regarding this Privacy Policy or the app's privacy practices, please contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:Karyanest@gmail.com" style="color: var(--brand); text-decoration: none; font-weight: 600;">Karyanest@gmail.com</a></p>
 
     <footer>
       &copy; 2026 Karyanest Softwares. All rights reserved.
