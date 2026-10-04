@@ -125,15 +125,19 @@
 
     /* Hero */
     .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
       padding: 40px 0 60px;
     }
 
     .hero-icon {
-      width: 180px;
-      height: 180px;
-      border-radius: 38px;
-      margin-bottom: 28px;
+      display: block;
+      width: 140px;
+      height: 140px;
+      border-radius: 32px;
+      margin: 0 auto 24px auto;
       box-shadow: 0 20px 50px -10px rgba(0,0,0,0.18), 0 0 0 1px var(--border);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -148,11 +152,11 @@
     }
 
     .badge-bar {
-      display: inline-flex;
+      display: flex;
       gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .badge {
