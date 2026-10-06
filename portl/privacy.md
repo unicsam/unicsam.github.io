@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Portl Share** by Karyanest Softwares  
+**Portl Share** by Karya Nest Softwares  
 *Effective date: July 4, 2026*
 
 This Privacy Policy describes how the Portl Share application ("the App") handles information. By using the App, you agree to the practices described below.
@@ -66,6 +66,6 @@ We may update this Privacy Policy from time to time. Any changes will be reflect
 ## 10. Contact Us
 If you have any questions about this Privacy Policy or the App's practices, please contact us at:
 
-**Karyanest Softwares**  
+**Karya Nest Softwares**  
 Email: [Karyanest@gmail.com](mailto:Karyanest@gmail.com)  
 Website: [https://unicsam.github.io/portl/privacy.html](https://unicsam.github.io/portl/privacy.html)
