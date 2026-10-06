@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Karya Nest — Independent App Developer</title>
   <meta name="description" content="Karya Nest is an independent app developer building offline-first software utilities. File sharing, Bluetooth remotes, and more — all running locally on your devices.">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="alternate icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta property="og:site_name" content="Karya Nest">
+  <link rel="icon" type="image/png" sizes="180x180" href="apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Karya Nest",
+    "alternateName": ["Karyanest", "Karyanest Softwares"],
+    "url": "https://karyanest.com/"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -75,19 +86,38 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
       color: var(--text);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: -0.01em;
     }
 
     .nav-brand .brand-logo {
-      height: 50px;
+      height: 42px;
       width: auto;
       flex-shrink: 0;
       display: block;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    .brand-sub {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--text-secondary);
+      line-height: 1.15;
     }
 
     .nav-right {
@@ -381,7 +411,10 @@
         <circle cx="748.6" cy="85.6" r="19.8" fill="var(--bg, #ffffff)" />
         <path d="M307.5 746.0 C360.0 740.5 403.4 718.2 435.5 680.0 C444.6 669.3 454.1 653.9 460.3 639.9 C461.8 636.5 463.4 633.1 463.7 632.2 C464.3 630.9 465.8 626.9 468.3 619.8 C471.5 610.2 475.0 595.0 476.3 584.9 C477.5 574.2 477.5 574.6 476.7 573.9 C475.6 573.0 450.7 572.7 441.3 573.5 C428.3 574.5 419.0 576.0 408.0 578.6 C385.7 583.9 360.8 595.3 343.0 608.5 C329.6 618.5 315.6 632.3 304.7 646.2 C288.5 667.1 273.6 694.9 265.3 719.6 C261.9 729.9 258.6 743.2 259.1 744.7 C259.5 745.5 262.8 746.0 273.8 746.5 C282.5 747.0 300.6 746.7 307.5 746.0 Z M273.4 454.3 C274.6 453.1 272.0 443.4 266.9 429.5 C264.8 423.8 259.3 411.9 256.6 407.2 C249.6 395.2 245.7 389.9 237.2 381.1 C228.7 372.2 217.0 363.6 207.2 359.0 C188.2 350.2 171.7 346.1 148.8 344.5 C139.6 343.8 123.1 344.2 122.3 345.0 C120.6 346.7 128.6 369.7 136.0 384.2 C147.3 406.5 160.4 421.8 178.6 434.1 C183.5 437.5 199.0 445.0 205.5 447.3 C216.8 451.2 231.9 454.2 244.5 455.0 C253.4 455.6 272.6 455.1 273.4 454.3 Z" fill="#409F1E" />
       </svg>
-      <span>Karya Nest</span>
+        <span class="nav-brand-text">
+          <span class="brand-name">Karya Nest</span>
+          <span class="brand-sub">Independent Developer</span>
+        </span>
     </a>
       <div class="nav-right">
         <a href="portl/" class="nav-link">Portl Share</a>
