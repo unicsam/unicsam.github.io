@@ -261,6 +261,7 @@
     section {
       padding: 64px 0;
       border-top: 1px solid var(--border);
+      scroll-margin-top: 80px;
     }
 
     .section-label {
@@ -336,86 +337,399 @@
       line-height: 1.6;
     }
 
-    /* ── Downloads Section ── */
-    .download-grid {
+    /* ── Downloads & Editions Section ── */
+    .editions-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 48px;
     }
 
-    .download-card {
+    @media (max-width: 860px) {
+      .editions-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    .edition-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 32px 24px;
+      border-radius: 20px;
+      padding: 36px 28px;
       display: flex;
       flex-direction: column;
       position: relative;
-      transition: transform 0.2s, border-color 0.2s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .download-card.featured {
+    .edition-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Lite Edition (Green Theme) */
+    .edition-card.lite {
+      border-color: rgba(16, 185, 129, 0.45);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%);
+      box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+    }
+
+    .edition-card.lite:hover {
+      border-color: #10b981;
+      box-shadow: 0 16px 40px -10px rgba(16, 185, 129, 0.35);
+    }
+
+    /* Full Edition (Blue / Cyan Theme) */
+    .edition-card.full {
+      border-color: rgba(56, 189, 248, 0.45);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%);
+      box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
+    }
+
+    .edition-card.full:hover {
       border-color: var(--accent);
-      box-shadow: 0 8px 30px var(--accent-glow);
+      box-shadow: 0 16px 40px -10px var(--accent-glow);
     }
 
-    .card-badge {
+    .edition-badge {
       position: absolute;
-      top: -12px;
-      right: 20px;
-      background: var(--accent);
-      color: #0b0f17;
+      top: -13px;
+      right: 24px;
       font-size: 0.72rem;
       font-weight: 800;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 999px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .download-card .arch-title {
-      font-size: 1.3rem;
-      font-weight: 700;
+    .badge-green {
+      background: #10b981;
+      color: #032b1e;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+
+    .badge-blue {
+      background: #38bdf8;
+      color: #082f49;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+    }
+
+    .edition-header {
+      margin-bottom: 20px;
+    }
+
+    .edition-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .download-card .arch-target {
+    .edition-card.lite .edition-title {
+      color: #34d399;
+    }
+
+    .edition-card.full .edition-title {
+      color: #38bdf8;
+    }
+
+    .edition-engine {
       font-size: 0.85rem;
+      font-weight: 600;
       color: var(--text-secondary);
-      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
     }
 
-    .download-card .specs {
+    .edition-pitch {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      padding: 10px 14px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      border-left: 3px solid;
+    }
+
+    .edition-card.lite .edition-pitch {
+      border-color: #10b981;
+    }
+
+    .edition-card.full .edition-pitch {
+      border-color: #38bdf8;
+    }
+
+    .edition-features {
       list-style: none;
-      margin-bottom: 24px;
+      margin: 22px 0 28px 0;
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .download-card .specs li {
-      font-size: 0.85rem;
+    .edition-features li {
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.45;
+    }
+
+    .feat-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .feat-icon.check-green {
+      color: #10b981;
+    }
+
+    .feat-icon.check-blue {
+      color: #38bdf8;
+    }
+
+    .feat-icon.cross-red {
+      color: #f87171;
+    }
+
+    .edition-features .limitation {
+      color: #fca5a5;
+      background: rgba(239, 68, 68, 0.08);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px dashed rgba(239, 68, 68, 0.3);
+    }
+
+    .edition-features .highlight-pro {
+      color: #bae6fd;
+      background: rgba(56, 189, 248, 0.08);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .edition-features .highlight-lite {
+      color: #a7f3d0;
+      background: rgba(16, 185, 129, 0.08);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .cta-area {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff !important;
+      border: none;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-green:hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(16, 185, 129, 0.55);
+    }
+
+    .arch-subgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 500px) {
+      .arch-subgrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .btn-sub-arch {
+      font-size: 0.78rem;
+      padding: 9px 12px;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      border-radius: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-sub-arch:hover {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      transform: translateY(-2px);
+    }
+
+    .btn-sub-arch .arch-name {
+      font-weight: 700;
+    }
+
+    .btn-sub-arch .arch-size {
+      font-size: 0.72rem;
       color: var(--text-secondary);
-      margin-bottom: 8px;
+    }
+
+    /* ── Side-by-Side Comparison Matrix Table ── */
+    .matrix-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .matrix-header {
+      padding: 24px 28px;
+      background: rgba(15, 23, 42, 0.85);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .matrix-header h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+      color: #f8fafc;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .download-card .specs li svg {
-      width: 16px;
-      height: 16px;
-      color: var(--accent);
-      flex-shrink: 0;
+    .matrix-header p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin: 0;
     }
 
-    .download-btn {
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .compare-table {
       width: 100%;
-      text-align: center;
-      justify-content: center;
-      padding: 12px 16px;
-      font-size: 0.9rem;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
     }
 
-    /* ── Remote Controls Guide ── */
+    .compare-table th {
+      padding: 16px 22px;
+      background: rgba(11, 15, 23, 0.9);
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .compare-table th.col-feature {
+      width: 32%;
+      color: var(--text-secondary);
+    }
+
+    .compare-table th.col-lite {
+      width: 34%;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 1px solid rgba(16, 185, 129, 0.2);
+      border-right: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .compare-table th.col-full {
+      width: 34%;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .compare-table td {
+      padding: 16px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      vertical-align: middle;
+      line-height: 1.45;
+    }
+
+    .compare-table td.col-lite {
+      background: rgba(16, 185, 129, 0.03);
+      border-left: 1px solid rgba(16, 185, 129, 0.15);
+      border-right: 1px solid rgba(16, 185, 129, 0.15);
+    }
+
+    .compare-table td.col-full {
+      background: rgba(56, 189, 248, 0.03);
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .compare-table .feat-name {
+      font-weight: 600;
+      color: #f1f5f9;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .compare-table .feat-desc {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .pill-green {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .pill-blue {
+      background: rgba(56, 189, 248, 0.18);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .pill-red {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    /* ── Remote Controls Guide ── *//* ── Remote Controls Guide ── */
     .remote-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -669,118 +983,270 @@
     <!-- Downloads Section -->
     <section class="downloads" id="download">
       <div class="section-label">Direct Downloads</div>
-      <h2 class="section-heading">Download LightWeb for Android TV</h2>
-      <p class="section-desc">Select the architecture for your Android TV box, smart television, or streaming stick. If unsure, download the Universal APK.</p>
+      <h2 class="section-heading">Choose Your LightWeb Edition</h2>
+      <p class="section-desc">LightWeb is engineered in two tailored editions. Compare features and download the version optimized for your Android TV hardware.</p>
 
-      <div class="download-grid">
+      <!-- Side-by-Side Edition Cards -->
+      <div class="editions-container">
 
-        <!-- Chromium-Only Universal APK -->
-        <div class="download-card featured" style="border-color: #10b981; box-shadow: 0 8px 30px rgba(16, 185, 129, 0.2);">
-          <span class="card-badge" style="background: #10b981; color: #ffffff;">Ultra-Light • 4.6MB</span>
-          <div class="arch-title">LightWeb Lite (Chromium)</div>
-          <div class="arch-target">Powered by Android System Chromium WebView • Ultra-fast, minimal RAM</div>
-          <ul class="specs">
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Ultra-compact ~4.6MB instant download
+        <!-- LEFT: LightWeb Lite (Chromium WebView) - Green Theme -->
+        <div class="edition-card lite">
+          <span class="edition-badge badge-green">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+            Ultra-Light • 4.6 MB
+          </span>
+
+          <div class="edition-header">
+            <div class="edition-title">LightWeb Lite</div>
+            <div class="edition-engine">Chromium WebView Edition</div>
+            <div class="edition-pitch">
+              Ultra-compact, instant launch, and minimal RAM. Built specifically for budget TV sticks, 1GB/2GB TVs, and low storage.
+            </div>
+          </div>
+
+          <ul class="edition-features">
+            <li class="highlight-lite">
+              <svg class="feat-icon check-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Ultra-Compact ~4.6 MB</strong> — Downloads and installs in under 3 seconds on any connection.</span>
             </li>
             <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Universal: all TV SOCs &amp; sticks (ARM + x86)
+              <svg class="feat-icon check-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Zero Engine Overhead</strong> — Uses Android's built-in Chromium WebView (~35-50 MB RAM usage).</span>
             </li>
             <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Zero engine overhead for 1GB/2GB TVs
+              <svg class="feat-icon check-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Universal TV Compatibility</strong> — Runs fluidly on Fire TV Stick Lite, Mi Box, and 1GB RAM smart TVs.</span>
             </li>
             <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Version 1.0.98 • Release Build
+              <svg class="feat-icon check-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Full TV Navigation</strong> — Precision virtual mouse cursor, D-pad snapping, and remote controls.</span>
+            </li>
+            <li class="limitation">
+              <svg class="feat-icon cross-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span><strong>No Firefox Extension Support</strong> — System Chromium WebView cannot run Firefox add-ons or uBlock Origin.</span>
             </li>
           </ul>
-          <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Lite-Chromium-Universal.apk" class="btn btn-primary download-btn" style="background: #10b981; color: #ffffff;">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            Download Chromium APK (4.6MB)
-          </a>
+
+          <div class="cta-area">
+            <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Lite-Chromium-Universal.apk" class="btn btn-green download-btn">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download Lite APK (4.6 MB)
+            </a>
+            <div style="text-align: center; font-size: 0.74rem; color: var(--text-secondary);">
+              Universal APK • All ABIs (ARM64, ARMv7, x86) • v1.0.98 Release
+            </div>
+          </div>
         </div>
 
+        <!-- RIGHT: LightWeb Full (Gecko + Chromium Dual Engine) - Blue / Cyan Theme -->
+        <div class="edition-card full">
+          <span class="edition-badge badge-blue">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            Full Featured • Recommended
+          </span>
 
-        <!-- Universal APK -->
-        <div class="download-card featured">
-          <span class="card-badge">Recommended</span>
-          <div class="arch-title">Universal APK</div>
-          <div class="arch-target">Compatible with all Android TV &amp; Google TV devices</div>
-          <ul class="specs">
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Includes all ABIs (arm64 + armv7 + x86)
+          <div class="edition-header">
+            <div class="edition-title">LightWeb Full</div>
+            <div class="edition-engine">Mozilla GeckoView + Dual Engine</div>
+            <div class="edition-pitch">
+              Standalone Mozilla browser engine with desktop-grade ad blocking, extension support, and 4K hardware WebRender.
+            </div>
+          </div>
+
+          <ul class="edition-features">
+            <li class="highlight-pro">
+              <svg class="feat-icon check-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Full Firefox Add-on Support</strong> — Install uBlock Origin, Dark Reader, Privacy Badger, &amp; custom extensions.</span>
             </li>
             <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Guaranteed plug-and-play install
+              <svg class="feat-icon check-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Comprehensive Ad &amp; Popup Blocking</strong> — Eliminates video ads, popups, and intrusive banners completely.</span>
             </li>
             <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Version 1.0.98 • Release Build
+              <svg class="feat-icon check-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Instant Dual-Engine Switcher</strong> — Toggle between GeckoView and Chromium WebView with one click in the menu.</span>
+            </li>
+            <li>
+              <svg class="feat-icon check-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Mozilla 4K WebRender</strong> — GPU-accelerated graphics pipeline for smooth rendering on modern 4K smart TVs.</span>
+            </li>
+            <li>
+              <svg class="feat-icon check-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Standard Memory Profile</strong> — ~150-250 MB RAM. Recommended for devices with 2GB+ RAM.</span>
             </li>
           </ul>
-          <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-Universal.apk" class="btn btn-primary download-btn">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            Download Universal APK
-          </a>
-        </div>
 
-        <!-- ARM64 APK -->
-        <div class="download-card">
-          <div class="arch-title">ARM64 (v8a)</div>
-          <div class="arch-target">Chromecast with Google TV 4K, Nvidia Shield TV, Modern 64-bit TVs</div>
-          <ul class="specs">
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Lightweight ~90MB download
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              64-bit optimized Gecko rendering
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Version 1.0.98 • Release Build
-            </li>
-          </ul>
-          <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-arm64-v8a.apk" class="btn btn-secondary download-btn">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            Download ARM64 APK
-          </a>
-        </div>
+          <div class="cta-area">
+            <!-- Universal APK Button -->
+            <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-Universal.apk" class="btn btn-primary download-btn">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download Universal APK (~222 MB)
+            </a>
+            <div style="text-align: center; font-size: 0.74rem; color: var(--text-secondary); margin-bottom: 4px;">
+              Compatible with all Android TV &amp; Google TV devices (ARM64 + ARMv7 + x86)
+            </div>
 
-        <!-- ARMv7 APK -->
-        <div class="download-card">
-          <div class="arch-title">ARMv7 (32-bit)</div>
-          <div class="arch-target">Fire TV Stick, Mi TV Box/Stick, Chromecast HD, Budget TVs</div>
-          <ul class="specs">
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Compact ~87MB download
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Optimized for 32-bit quad-core SOCs
-            </li>
-            <li>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Version 1.0.98 • Release Build
-            </li>
-          </ul>
-          <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-armeabi-v7a.apk" class="btn btn-secondary download-btn">
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            Download ARMv7 APK
-          </a>
+            <!-- Architecture-Specific Download Buttons -->
+            <div class="arch-subgrid">
+              <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-arm64-v8a.apk" class="btn-sub-arch">
+                <span class="arch-name">Download ARM64</span>
+                <span class="arch-size">~90 MB • 4K Google TV / Shield</span>
+              </a>
+              <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-armeabi-v7a.apk" class="btn-sub-arch">
+                <span class="arch-name">Download ARMv7</span>
+                <span class="arch-size">~87 MB • Fire Stick / 32-bit TV</span>
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>
+
+      <!-- Feature Comparison Matrix Table -->
+      <div class="matrix-wrapper">
+        <div class="matrix-header">
+          <div>
+            <h3>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              Side-by-Side Edition Comparison
+            </h3>
+            <p>Not sure which one to choose? Here is a clear breakdown of differences between Lite and Full.</p>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th class="col-feature">Specification / Feature</th>
+                <th class="col-lite">LightWeb Lite (Chromium)</th>
+                <th class="col-full">LightWeb Full (Gecko Dual Engine)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="feat-name">Rendering Engine</span>
+                  <span class="feat-desc">Core web platform powering the display</span>
+                </td>
+                <td class="col-lite">
+                  <span class="badge-pill pill-green">System Chromium WebView</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">Uses Android's pre-installed engine</div>
+                </td>
+                <td class="col-full">
+                  <span class="badge-pill pill-blue">Mozilla GeckoView + Chromium</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">Bundled Firefox engine + dual toggle</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="feat-name">Download / APK Size</span>
+                  <span class="feat-desc">Storage required to download</span>
+                </td>
+                <td class="col-lite">
+                  <span class="badge-pill pill-green">⚡ ~4.6 MB</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">Ultra-fast download, zero storage impact</div>
+                </td>
+                <td class="col-full">
+                  <span class="badge-pill pill-blue">~87 MB - ~222 MB</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">90MB (ARM64), 87MB (ARMv7), 222MB (Universal)</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="feat-name">Active RAM Consumption</span>
+                  <span class="feat-desc">Runtime memory during browsing</span>
+                </td>
+                <td class="col-lite">
+                  <span class="badge-pill pill-green">~35 MB - 50 MB</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">Ideal for 1GB RAM budget TV sticks</div>
+                </td>
+                <td class="col-full">
+                  <span class="badge-pill pill-blue">~150 MB - 250 MB</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">Standard browser memory for 2GB+ TVs</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="feat-name">Firefox Add-on / Extensions</span>
+                  <span class="feat-desc">WebExtensions (uBlock Origin, Dark Reader)</span>
+                </td>
+                <td class="col-lite">
+                  <span class="badge-pill pill-red">❌ No Extensions</span>
+                  <div style="font-size: 0.76rem; color: #fca5a5; margin-top: 4px;">Chromium WebView cannot load add-ons</div>
+                </td>
+                <td class="col-full">
+                  <span class="badge-pill pill-blue">✅ Full Support</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">uBlock Origin &amp; Firefox Add-ons ready</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="feat-name">Ad &amp; Tracker Blocking</span>
+                  <span class="feat-desc">Prevention of video ads, popups &amp; banners</span>
+                </td>
+                <td class="col-lite">
+                  <span style="color: var(--text-secondary); font-size: 0.85rem;">Basic DNS / Host blocking</span>
+                </td>
+                <td class="col-full">
+                  <span class="badge-pill pill-blue">🛡️ Advanced uBlock Origin</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">Cosmetic filtering &amp; video ad blocking</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="feat-name">Dual Engine Switcher</span>
+                  <span class="feat-desc">Switch rendering engine on stubborn sites</span>
+                </td>
+                <td class="col-lite">
+                  <span style="color: var(--text-secondary); font-size: 0.85rem;">Single Engine (Chromium only)</span>
+                </td>
+                <td class="col-full">
+                  <span class="badge-pill pill-blue">🔄 One-Click Toggle</span>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">Instant fallback from Gecko to Chromium</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="feat-name">TV Virtual Cursor &amp; Remote</span>
+                  <span class="feat-desc">Hardware D-pad &amp; acceleration curve</span>
+                </td>
+                <td class="col-lite">
+                  <span class="badge-pill pill-green">✅ Full Support</span>
+                </td>
+                <td class="col-full">
+                  <span class="badge-pill pill-blue">✅ Full Support</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="feat-name">Recommended Hardware</span>
+                  <span class="feat-desc">Optimal device suitability</span>
+                </td>
+                <td class="col-lite">
+                  <strong style="color: #34d399;">Budget Devices</strong><br>
+                  <span style="font-size: 0.78rem; color: var(--text-secondary);">Fire TV Stick Lite / Basic, 1GB TVs, low storage</span>
+                </td>
+                <td class="col-full">
+                  <strong style="color: #38bdf8;">Standard &amp; 4K Devices</strong><br>
+                  <span style="font-size: 0.78rem; color: var(--text-secondary);">Chromecast 4K, Shield TV, 2GB+ Smart TVs, Fire 4K</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </section>
 
-    <!-- TV Remote Controls Guide -->
+    <!-- TV Remote Controls Guide --><!-- TV Remote Controls Guide -->
     <section class="remote-guide" id="remote">
       <div class="section-label">Quick Reference</div>
       <h2 class="section-heading">TV Remote Button Cheat Sheet</h2>
