@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LightWeb — Fast, Ad-Free Web Browser for Android TV & Google TV</title>
+  <meta name="description" content="LightWeb is the fast, private, ad-free web browser built specifically for Android TV and Google TV. Featuring uBlock Origin, WebExtensions, virtual cursor, and 4K hardware acceleration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="lightweb_icon.png">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --accent: #0284c7;
+      --accent-glow: rgba(2, 132, 199, 0.15);
+      --btn-bg: #0f172a;
+      --btn-text: #ffffff;
+      --btn-hover: #1e293b;
+      --badge-bg: #e0f2fe;
+      --badge-text: #0369a1;
+    }
+
+    body.dark {
+      --bg: #0b0f17;
+      --bg-subtle: #111827;
+      --card-bg: #141c29;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1f293d;
+      --accent: #00e5ff;
+      --accent-glow: rgba(0, 229, 255, 0.2);
+      --btn-bg: #00e5ff;
+      --btn-text: #0b0f17;
+      --btn-hover: #33ecff;
+      --badge-bg: rgba(0, 229, 255, 0.12);
+      --badge-text: #00e5ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background 0.25s, color 0.25s;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Navigation ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11, 15, 23, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    body:not(.dark) header {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      background: var(--bg-subtle);
+    }
+
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .theme-btn:hover { border-color: var(--accent); color: var(--text); }
+    .theme-btn svg { width: 18px; height: 18px; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    body.dark .icon-sun { display: block; }
+    body.dark .icon-moon { display: none; }
+
+    /* ── Main Container ── */
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 100px 24px 60px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 48px 0 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 580px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: currentColor;
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .highlight {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--btn-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-graphic {
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .hero-graphic img {
+      width: 240px;
+      height: 240px;
+      border-radius: 36px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--border);
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+
+    /* ── Feature Cards Grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--badge-bg);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ── Downloads Section ── */
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .download-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .download-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px var(--accent-glow);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--accent);
+      color: #0b0f17;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .download-card .arch-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .download-card .arch-target {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .download-card .specs {
+      list-style: none;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .download-card .specs li {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .download-card .specs li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .download-btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+    }
+
+    /* ── Remote Controls Guide ── */
+    .remote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .remote-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .key-badge {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      min-width: 110px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .key-desc h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .key-desc p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Accordion Installation Guides ── */
+    .accordion-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .accordion-header:hover {
+      background: var(--bg-subtle);
+    }
+
+    .accordion-icon {
+      transition: transform 0.2s;
+    }
+
+    .accordion-item.open .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+
+    .accordion-content-inner {
+      padding: 0 24px 20px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .accordion-content-inner ol {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .accordion-content-inner li {
+      margin-bottom: 6px;
+    }
+
+    .accordion-content code {
+      background: var(--bg-subtle);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--text);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .hero {
+        flex-direction: column-reverse;
+        padding: 24px 0 48px;
+        text-align: center;
+      }
+      .hero-text { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .features-grid { grid-template-columns: 1fr; }
+      .download-grid { grid-template-columns: 1fr; }
+      .remote-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="dark">
+
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-brand">
+        <img src="lightweb_icon.png" alt="LightWeb">
+        <span>LightWeb</span>
+      </a>
+      <div class="nav-right">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#download" class="nav-link">Download APK</a>
+        <a href="#remote" class="nav-link">Remote Guide</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="privacy.html" class="nav-link">Privacy</a>
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" style="border-top: none;">
+      <div class="hero-text">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>Engineered for Android TV &amp; Google TV</span>
+        </div>
+        <h1>The Next-Gen Web Browser for the <span class="highlight">Big Screen</span>.</h1>
+        <p>Fast, ad-free, and designed 100% for standard TV remotes. Powered by Mozilla GeckoView with full uBlock Origin ad-blocking, WebExtensions support, virtual mouse precision, and 4K hardware-accelerated streaming.</p>
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-primary">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download Release APK
+          </a>
+          <a href="https://github.com/unicsam/Light-Web" target="_blank" class="btn btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub Repository
+          </a>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <img src="lightweb_icon.png" alt="LightWeb App Icon">
+      </div>
+    </section>
+
+    <!-- Key Highlights / Features -->
+    <section class="features" id="features">
+      <div class="section-label">Engineered For Living Rooms</div>
+      <h2 class="section-heading">Desktop-Class Power. Seamless TV Control.</h2>
+      <p class="section-desc">Experience web browsing built specifically for couch viewing with zero ads, true WebExtensions, and responsive remote control.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3>True uBlock Origin Ad-Blocking</h3>
+          <p>Integrated full-featured uBlock Origin eliminates video ads, popups, banner networks, and intrusive trackers before they ever render.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+          </div>
+          <h3>Precision Virtual Mouse</h3>
+          <p>Tap D-Pad arrows for pixel-perfect micro nudges; hold for smooth fluid acceleration. Click tiny links and media controls effortlessly without a mouse.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          </div>
+          <h3>WebExtensions &amp; Add-ons</h3>
+          <p>Run your favorite Mozilla Firefox extensions directly on your TV: Dark Reader, SponsorBlock, AdGuard, and browse millions of addons on AMO.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3>4K Hardware Video Streaming</h3>
+          <p>Native MediaCodec hardware acceleration delivers smooth 4K/60fps playback with zero frame drops across YouTube, streaming hubs, and web players.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          </div>
+          <h3>3-Space Clean Architecture</h3>
+          <p>Space 1: Search &amp; Bookmarks Hub. Space 2: 100% Zero-Chrome immersive Web. Space 3: Visual Tabs &amp; History Grid. Clean and clutter-free.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3>Zero-Telemetry Privacy</h3>
+          <p>No user accounts, no analytics tracking, no external data harvesting. Your history and cookies stay strictly in RAM or on your local device.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="downloads" id="download">
+      <div class="section-label">Direct Downloads</div>
+      <h2 class="section-heading">Download LightWeb for Android TV</h2>
+      <p class="section-desc">Select the architecture for your Android TV box, smart television, or streaming stick. If unsure, download the Universal APK.</p>
+
+      <div class="download-grid">
+
+        <!-- Universal APK -->
+        <div class="download-card featured">
+          <span class="card-badge">Recommended</span>
+          <div class="arch-title">Universal APK</div>
+          <div class="arch-target">Compatible with all Android TV &amp; Google TV devices</div>
+          <ul class="specs">
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Includes all ABIs (arm64 + armv7 + x86)
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Guaranteed plug-and-play install
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Version 1.0.98 • Release Build
+            </li>
+          </ul>
+          <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-Universal.apk" class="btn btn-primary download-btn">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download Universal APK
+          </a>
+        </div>
+
+        <!-- ARM64 APK -->
+        <div class="download-card">
+          <div class="arch-title">ARM64 (v8a)</div>
+          <div class="arch-target">Chromecast with Google TV 4K, Nvidia Shield TV, Modern 64-bit TVs</div>
+          <ul class="specs">
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Lightweight ~90MB download
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              64-bit optimized Gecko rendering
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Version 1.0.98 • Release Build
+            </li>
+          </ul>
+          <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-arm64-v8a.apk" class="btn btn-secondary download-btn">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download ARM64 APK
+          </a>
+        </div>
+
+        <!-- ARMv7 APK -->
+        <div class="download-card">
+          <div class="arch-title">ARMv7 (32-bit)</div>
+          <div class="arch-target">Fire TV Stick, Mi TV Box/Stick, Chromecast HD, Budget TVs</div>
+          <ul class="specs">
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Compact ~87MB download
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Optimized for 32-bit quad-core SOCs
+            </li>
+            <li>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Version 1.0.98 • Release Build
+            </li>
+          </ul>
+          <a href="https://github.com/unicsam/unicsam.github.io/releases/download/lightweb/v-1-0-98-LightWeb-Full-armeabi-v7a.apk" class="btn btn-secondary download-btn">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download ARMv7 APK
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TV Remote Controls Guide -->
+    <section class="remote-guide" id="remote">
+      <div class="section-label">Quick Reference</div>
+      <h2 class="section-heading">TV Remote Button Cheat Sheet</h2>
+      <p class="section-desc">You do not need a physical keyboard or mouse. LightWeb is engineered around standard TV remote controls.</p>
+
+      <div class="remote-grid">
+        <div class="remote-card">
+          <div class="key-badge">D-PAD ARROWS</div>
+          <div class="key-desc">
+            <h4>Move Cursor / Scroll</h4>
+            <p>Tap for micro-nudging links; hold for smooth acceleration across the screen.</p>
+          </div>
+        </div>
+
+        <div class="remote-card">
+          <div class="key-badge">DPAD CENTER</div>
+          <div class="key-desc">
+            <h4>Left Click &amp; Menu</h4>
+            <p>Short tap clicks the hovered element. Long-press opens the TV Context Menu.</p>
+          </div>
+        </div>
+
+        <div class="remote-card">
+          <div class="key-badge">BACK KEY</div>
+          <div class="key-desc">
+            <h4>Back / Navigation HUD</h4>
+            <p>Navigates back one page in history. Pressing again brings up the 3-Space Navigation HUD.</p>
+          </div>
+        </div>
+
+        <div class="remote-card">
+          <div class="key-badge">MENU KEY</div>
+          <div class="key-desc">
+            <h4>Quick Browser Controls</h4>
+            <p>Opens Zoom, Extensions, Cursor Speed, Bookmarks, and Settings drawer instantly.</p>
+          </div>
+        </div>
+
+        <div class="remote-card">
+          <div class="key-badge">PLAY / PAUSE</div>
+          <div class="key-desc">
+            <h4>Media Playback</h4>
+            <p>Directly toggles HTML5 video playback without needing to hover video controls.</p>
+          </div>
+        </div>
+
+        <div class="remote-card">
+          <div class="key-badge">FAST FWD / REW</div>
+          <div class="key-desc">
+            <h4>Seek Video &plusmn;10s</h4>
+            <p>Skips forward or rewinds media playback by 10 seconds smoothly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Guides Accordion -->
+    <section class="guides" id="guides">
+      <div class="section-label">Setup</div>
+      <h2 class="section-heading">How to Install on Android TV</h2>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Method 1: Sideload via Downloader App (Easiest)</span>
+          <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <ol>
+              <li>Install the free <strong>Downloader by AFTVnews</strong> app from the Google Play Store or Amazon Appstore on your TV.</li>
+              <li>Open Downloader, enter the direct APK URL or short code for LightWeb.</li>
+              <li>Once downloaded, click <strong>Install</strong>. If prompted, grant "Install Unknown Apps" permission to Downloader in your TV Settings.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Method 2: Sideload via Send Files to TV (SFTV)</span>
+          <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <ol>
+              <li>Download the LightWeb APK onto your Android phone or PC.</li>
+              <li>Install <strong>Send Files to TV</strong> on both your TV and your phone/PC.</li>
+              <li>Transfer the APK over local Wi-Fi, then open it with any file manager on your TV to install.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Method 3: Install via ADB (Developers &amp; Power Users)</span>
+          <svg class="accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            Enable <strong>Developer Options</strong> and <strong>Network Debugging</strong> on your Android TV, then execute from your PC:
+            <br><br>
+            <code>adb connect &lt;TV_IP_ADDRESS&gt;:5555</code><br>
+            <code>adb install -r LightWeb-Full-Universal.apk</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="faq.html">FAQ &amp; About</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://github.com/unicsam/Light-Web" target="_blank">GitHub</a>
+      <a href="../index.html">Karya Nest Portfolio</a>
+    </div>
+    <p>&copy; 2026 Karya Nest Softwares. All rights reserved. • LightWeb Browser for Android TV</p>
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById('theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light') {
+      document.body.classList.remove('dark');
+    } else if (savedTheme === 'dark' || prefersDark) {
+      document.body.classList.add('dark');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const content = item.querySelector('.accordion-content');
+        const isOpen = item.classList.contains('open');
+
+        document.querySelectorAll('.accordion-item').forEach(other => {
+          if (other !== item) {
+            other.classList.remove('open');
+            other.querySelector('.accordion-content').style.maxHeight = null;
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove('open');
+          content.style.maxHeight = null;
+        } else {
+          item.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
