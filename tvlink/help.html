@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Link Companion – Android TV Shortcut Bridge Setup</title>
+  <meta name="description" content="Quick reference guide for enabling 1-tap shortcut launches for sideloaded and custom Android TV apps using TV Link Remote.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #151922;
+      --surface: #1C2230;
+      --surface-subtle: #242B3D;
+      --line: #2E374D;
+      --line-strong: #435070;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
+      --status-bg: #1B3329;
+      --status-line: #285440;
+      --status-text: #86EFAC;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      line-height: 1.6;
+      padding: 48px 24px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Masthead */
+    .masthead {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 32px;
+      margin-bottom: 40px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-mark svg {
+      width: 20px;
+      height: 20px;
+      color: #60A5FA;
+    }
+
+    .doc-type {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    h1 {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(28px, 4.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+    }
+
+    .deck {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 620px;
+      line-height: 1.55;
+    }
+
+    /* Primary Action: Direct Download & TV Downloader Entry */
+    .download-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-bottom: 36px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+
+    .panel-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .file-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .panel-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) {
+      .panel-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .download-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 14px 22px;
+      border: 1px solid transparent;
+      width: 100%;
+      transition: background 0.15s ease;
+    }
+
+    .btn-action:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-action:focus-visible, a:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 3px;
+    }
+
+    .tv-code-box {
+      background: var(--surface-subtle);
+      border: 1px solid var(--line-strong);
+      padding: 18px;
+    }
+
+    .tv-code-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .tv-code-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: #93C5FD;
+      word-break: break-all;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      display: block;
+    }
+
+    .tv-code-tip {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      line-height: 1.45;
+    }
+
+    /* Installation Steps: Structured Guide List */
+    .section-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .step-row {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 18px;
+      align-items: baseline;
+    }
+
+    @media (max-width: 560px) {
+      .step-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    .step-index {
+      font-family: 'Archivo', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #60A5FA;
+    }
+
+    .step-heading {
+      font-family: 'Archivo', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .step-text {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .step-text strong {
+      color: var(--text);
+    }
+
+    .status-badge {
+      display: inline-block;
+      background: var(--status-bg);
+      border: 1px solid var(--status-line);
+      color: var(--status-text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 8px;
+      margin: 6px 0;
+    }
+
+    /* FAQ Section */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 20px;
+    }
+
+    .faq-question {
+      font-family: 'Archivo', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .faq-answer {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header class="masthead">
+      <div class="brand-row">
+        <a href="https://karyanest.com" class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+            <polyline points="17 2 12 7 7 2"/>
+          </svg>
+          TV Link Remote
+        </a>
+        <span class="doc-type">Setup &amp; Reference Guide</span>
+      </div>
+      <h1>Direct Launch for Custom TV Apps</h1>
+      <p class="deck">Set up the companion bridge on your television once to unlock immediate shortcut launches for sideloaded and non-store applications.</p>
+    </header>
+
+    <section class="download-panel">
+      <div class="panel-header">
+        <span class="panel-title">TV Link Companion</span>
+        <span class="file-meta">v1.0 · 560 KB · Android 8+</span>
+      </div>
+      <div class="panel-content">
+        <div>
+          <p class="download-desc">
+            A standalone launch bridge that executes shortcut commands from your phone remote. It has zero background services, zero battery draw, and terminates immediately after launching your target app.
+          </p>
+          <a href="tvlink-companion.apk" class="btn-action" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Companion APK
+          </a>
+        </div>
+        <div class="tv-code-box">
+          <div class="tv-code-label">Downloader App Direct Link</div>
+          <code class="tv-code-url">karyanest.com/tvlink/tvlink-companion.apk</code>
+          <p class="tv-code-tip">Type this short URL into the TV <strong>Downloader</strong> app to install directly on your television.</p>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-title">Setup Steps</h2>
+    <div class="step-list">
+      <div class="step-row">
+        <div class="step-index">Step 1</div>
+        <div>
+          <div class="step-heading">Transfer the APK to your TV</div>
+          <div class="step-text">
+            Use whichever method matches your setup:
+            <ul style="margin: 8px 0 0 18px; line-height: 1.7;">
+              <li><strong>Downloader App (Fastest):</strong> Open Downloader on TV, enter the URL above, and click Download.</li>
+              <li><strong>Send Files to TV:</strong> Download the APK on your phone and send it wirelessly to your TV.</li>
+              <li><strong>USB Drive:</strong> Copy the downloaded APK to a thumb drive and plug it into your TV.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-index">Step 2</div>
+        <div>
+          <div class="step-heading">Open Once to Confirm Activation</div>
+          <div class="step-text">
+            Launch <strong>TV Link Companion</strong> from your TV Apps drawer. You will see:
+            <div><span class="status-badge">COMPANION ACTIVE &amp; READY</span></div>
+            Press <strong>Return to TV Home</strong>. No further configuration is needed.
+          </div>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-index">Step 3</div>
+        <div>
+          <div class="step-heading">Launch Directly from Your Remote</div>
+          <div class="step-text">
+            Tap your app's shortcut inside the <strong>TV Link Remote</strong> phone app. Your TV will switch to the app immediately.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Technical FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Why is a companion app required for some apps?</div>
+        <div class="faq-answer">On Android TV 11+ and Google TV, OS security policy prevents remote controllers from directly invoking arbitrary package intents without a registered local handler. The TV Link Companion acts as that lightweight handler on the TV.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Does it consume memory or run in the background?</div>
+        <div class="faq-answer">No. The companion has 0 persistent background services, 0 broadcast listeners, and 0 memory consumption while idle. It activates for ~200 milliseconds to start your app, then closes.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What if I do not install the companion?</div>
+        <div class="faq-answer">The TV Link phone remote automatically falls back to opening the app's official TV Store listing after a brief timeout.</div>
+      </div>
+    </div>
+
+    <footer>
+      <span>&copy; TV Link Remote &middot; Karyanest</span>
+      <span>Android TV &amp; Google TV are trademarks of Google LLC.</span>
+    </footer>
+  </div>
+
+</body>
+</html>
