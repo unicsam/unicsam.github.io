@@ -4,186 +4,153 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Arrow Untangle</title>
-  <meta name="description" content="Official Google Play and App Store Compliant Privacy Policy for Arrow Untangle by Karya Nest Softwares. 100% offline, zero ads, zero tracking.">
+  <meta name="description" content="Official Google Play Privacy Policy for Arrow Untangle by Karya Nest Softwares. 100% offline, zero ads, zero data collection.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
-      --bg-subtle: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #0f172a;
-      --text-secondary: #475569;
-      --border: #e2e8f0;
-      --accent: #d97706;
-      --accent-hover: #b45309;
+      --bg-subtle: #f7f7f7;
+      --text: #171717;
+      --text-secondary: #525252;
+      --border: #e5e5e5;
+      --accent: #2563eb;
     }
 
     body.dark {
-      --bg: #0b0f17;
-      --bg-subtle: #111827;
-      --card-bg: #141c29;
-      --text: #f8fafc;
-      --text-secondary: #94a3b8;
-      --border: #1f293d;
-      --accent: #f59e0b;
-      --accent-hover: #d97706;
+      --bg: #0a0a0a;
+      --bg-subtle: #141414;
+      --text: #ededed;
+      --text-secondary: #a3a3a3;
+      --border: #262626;
+      --accent: #60a5fa;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      transition: background 0.2s, color 0.2s;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.75;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
     }
 
     header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 50;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(8px);
     }
 
     .nav {
-      max-width: 800px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 0 24px;
-      height: 60px;
+      padding: 0 20px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .nav-brand {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1rem;
       display: flex;
       align-items: center;
-      gap: 12px;
-      letter-spacing: -0.01em;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
     }
 
     .nav-brand img {
       width: 28px;
       height: 28px;
-      border-radius: 8px;
-      object-fit: cover;
+      border-radius: 6px;
+      display: block;
     }
 
-    .theme-btn {
-      background: none;
+    .theme-toggle {
+      background: transparent;
       border: 1px solid var(--border);
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
       color: var(--text-secondary);
-      transition: border-color 0.15s, color 0.15s;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
     }
 
-    .theme-btn:hover { border-color: var(--text-secondary); color: var(--text); }
-    .theme-btn svg { width: 17px; height: 17px; }
-    .icon-sun { display: none; }
-    .icon-moon { display: block; }
-    body.dark .icon-sun { display: block; }
-    body.dark .icon-moon { display: none; }
+    .theme-toggle:hover {
+      color: var(--text);
+      border-color: var(--text-secondary);
+    }
 
     main {
-      max-width: 800px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 104px 24px 80px;
+      padding: 48px 20px 80px;
     }
 
     h1 {
-      font-size: 2.3rem;
+      font-size: 2rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
       margin-bottom: 8px;
-      line-height: 1.2;
     }
 
-    .app-meta {
-      font-size: 0.95rem;
+    .metadata-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0 32px;
+      font-size: 0.9rem;
       color: var(--text-secondary);
-      margin-bottom: 24px;
       line-height: 1.6;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text-secondary);
-      margin-bottom: 28px;
-    }
-
-    .badge-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
-    }
-
-    .highlight-card {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      margin: 24px 0 36px;
-    }
-
-    .highlight-card h3 {
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 8px;
+    .metadata-box strong {
       color: var(--text);
     }
 
-    .highlight-card p {
-      margin-bottom: 0;
-      font-size: 0.94rem;
-      color: var(--text-secondary);
-    }
-
     h2 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin-top: 40px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-top: 36px;
       margin-bottom: 12px;
-      letter-spacing: -0.02em;
       color: var(--text);
     }
 
     h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-top: 20px;
-      margin-bottom: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 18px;
+      margin-bottom: 6px;
       color: var(--text);
     }
 
     p {
       color: var(--text-secondary);
-      font-size: 0.96rem;
-      margin-bottom: 14px;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
     }
 
     p strong {
@@ -191,48 +158,33 @@
     }
 
     ul {
-      list-style: none;
-      margin-bottom: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    ul li {
+      margin: 8px 0 16px 20px;
       color: var(--text-secondary);
       font-size: 0.95rem;
-      padding-left: 22px;
-      position: relative;
     }
 
-    ul li::before {
-      content: "•";
-      position: absolute;
-      left: 6px;
-      color: var(--accent);
-      font-weight: bold;
-      font-size: 1.1rem;
+    li {
+      margin-bottom: 6px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 18px 0 28px;
-      font-size: 0.92rem;
-      border-radius: 12px;
-      overflow: hidden;
+      margin: 16px 0 24px;
+      font-size: 0.88rem;
     }
 
     th, td {
       border: 1px solid var(--border);
-      padding: 12px 16px;
+      padding: 10px 14px;
       text-align: left;
+      vertical-align: top;
     }
 
     th {
       background: var(--bg-subtle);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 600;
     }
 
     td {
@@ -241,38 +193,34 @@
 
     code {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.86em;
+      font-size: 0.85em;
       background: var(--bg-subtle);
       border: 1px solid var(--border);
-      padding: 2px 6px;
-      border-radius: 6px;
-      color: var(--accent);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--text);
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 44px 0;
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--text);
     }
 
     footer {
-      font-size: 0.88rem;
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+      padding-top: 24px;
+      font-size: 0.85rem;
       color: var(--text-secondary);
       display: flex;
       justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-    }
-
-    footer a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    footer a:hover {
-      color: var(--accent);
     }
   </style>
 </head>
@@ -280,149 +228,99 @@
 
   <header>
     <div class="nav">
-      <a href="https://karyanest.com" class="nav-brand">
-        <img src="icon.png" alt="Arrow Untangle Icon">
-        Arrow Untangle
-      </a>
-      <div style="display: flex; align-items: center; gap: 18px;">
-        <a href="https://karyanest.com" style="text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">Home</a>
-        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-          <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-          </svg>
-          <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-          </svg>
-        </button>
+      <div class="nav-brand">
+        <img src="icon.png" alt="" width="28" height="28">
+        <span>Arrow Untangle</span>
       </div>
+      <button class="theme-toggle" id="themeBtn" type="button">Theme</button>
     </div>
   </header>
 
   <main>
     <h1>Privacy Policy</h1>
-    <div class="app-meta">
-      <strong>Application:</strong> Arrow Untangle<br>
-      <strong>Package Name / Application ID:</strong> <code>arrow.puzzle.untangle</code><br>
-      <strong>Developer:</strong> Karya Nest Softwares &bull; Sourav<br>
-      <strong>Effective Date:</strong> October 25, 2026
+
+    <div class="metadata-box">
+      <div><strong>Application:</strong> Arrow Untangle</div>
+      <div><strong>Package Name:</strong> <code>arrow.puzzle.untangle</code></div>
+      <div><strong>Developer:</strong> Karya Nest Softwares</div>
+      <div><strong>Effective Date:</strong> October 25, 2026</div>
     </div>
 
-    <div class="badge">
-      <span class="badge-dot"></span>
-      100% Offline Puzzle &bull; Zero Ads &bull; Zero Personal Data Collected
-    </div>
+    <p>This Privacy Policy describes how Karya Nest Softwares handles user information for the mobile application <strong>Arrow Untangle</strong>. The app is built with an offline-first architecture and does not collect, record, transmit, or share personal data.</p>
 
-    <div class="highlight-card">
-      <h3>Overview &amp; Core Promise</h3>
-      <p>This Privacy Policy explains how <strong>Arrow Untangle</strong> treats your information. Our design philosophy is simple, distraction-free, and private: <strong>we do not show third-party ads, and we do not collect, store, transmit, monetize, track, or share any personal data</strong>. All gameplay progress and puzzle settings remain strictly on your local device.</p>
-    </div>
+    <h2>1. Information Collection and Use</h2>
+    <p>Arrow Untangle does not collect any personal data or usage metrics:</p>
+    <ul>
+      <li><strong>No Personal Information:</strong> We do not ask for names, email addresses, phone numbers, accounts, or user profiles.</li>
+      <li><strong>No Financial Data:</strong> The application does not collect payment details, credit card numbers, or billing addresses.</li>
+      <li><strong>No Location Data:</strong> The application does not request, access, or track GPS coordinates or network-based location.</li>
+      <li><strong>No Device Files:</strong> The application does not access your photos, media gallery, camera, microphone, or address book.</li>
+      <li><strong>No Analytics SDKs:</strong> There are no analytics frameworks (such as Firebase Analytics, Google Analytics, Mixpanel, or Amplitude) integrated into the app.</li>
+    </ul>
 
-    <h2>1. Who We Are</h2>
-    <p>Arrow Untangle is developed and published by <strong>Karya Nest Softwares</strong> (founded by Sourav). We create handcrafted, distraction-free mobile games and tools built to run locally on your device without cloud surveillance or unnecessary permissions.</p>
+    <h2>2. Advertising</h2>
+    <p>Arrow Untangle does not display advertisements. The application contains no third-party ad network libraries (such as Google AdMob, Unity Ads, AppLovin, or Meta Audience Network) and does not access advertising identifiers (like Google Advertising ID).</p>
 
-    <h2>2. Data Collection Policy</h2>
-    <p><strong>Arrow Untangle collects zero personal data.</strong> Specifically:</p>
-
-    <h3>A. Personal Identifiable Information (PII)</h3>
-    <p><strong>None.</strong> We do not require account registration, email addresses, phone numbers, names, or profile creation. You can play every level completely anonymously.</p>
-
-    <h3>B. Financial &amp; Payment Data</h3>
-    <p><strong>None.</strong> Arrow Untangle does not collect credit card, banking, or billing details. Any future in-app purchases or tips would be handled entirely through Google Play / Apple In-App Billing systems.</p>
-
-    <h3>C. Photos, Files &amp; Media</h3>
-    <p><strong>None.</strong> The app never requests access to your photos, camera, microphone, internal media storage, or contact lists.</p>
-
-    <h3>D. Analytics &amp; Telemetry Data</h3>
-    <p><strong>None.</strong> The game contains zero behavioral analytics SDKs (such as Firebase Analytics, Google Analytics, Mixpanel, or Amplitude). We do not record screen views, tap coordinates, session durations, or player profiles.</p>
-
-    <h3>E. Location Information</h3>
-    <p><strong>None.</strong> Arrow Untangle never requests or accesses GPS, network-based location, or Wi-Fi triangulation data.</p>
-
-    <h2>3. Advertising Policy</h2>
-    <p><strong>Arrow Untangle contains zero third-party advertisements.</strong> The game does not bundle ad network SDKs (such as Google AdMob, Unity Ads, AppLovin, ironSource, or Meta Audience Network). There are no pop-up interstitials, banners, video ads, or tracking identifiers (like Google Advertising ID / IDFA).</p>
-
-    <h2>4. How Your Gameplay Data Is Stored</h2>
-    <p>All game data (including your current level, challenge vs. casual mode, sound/haptic toggles, and color theme) is stored strictly in your device's private local storage (browser sandbox <code>localStorage</code>). Because your device never syncs this gameplay state to external cloud servers, your information is completely protected from remote server leaks or data breaches.</p>
-
-    <h2>5. Permissions and System Access</h2>
-    <p>Arrow Untangle follows the principle of least privilege and requires minimal system access:</p>
+    <h2>3. Device Permissions</h2>
+    <p>Arrow Untangle requests only the minimal system permissions required to run on Android:</p>
 
     <table>
       <thead>
         <tr>
-          <th>Permission / Feature</th>
-          <th>Usage &amp; Purpose</th>
-          <th>Type</th>
+          <th>Permission</th>
+          <th>Purpose</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><code>android.permission.VIBRATE</code></td>
-          <td>Used to generate tactile haptic feedback when rotating arrows, clearing puzzles, or bumping obstacles. This can be toggled off at any time inside the game Settings.</td>
-          <td>Normal</td>
+          <td>Generates subtle tactile haptic pulses when rotating or clearing arrows. This can be enabled or disabled in the in-game settings dialog.</td>
         </tr>
         <tr>
           <td><code>android.permission.INTERNET</code></td>
-          <td>Standard permission bundled by the underlying native WebView runtime (Capacitor). Arrow Untangle does not transmit personal data, analytics, or background telemetry over the internet.</td>
-          <td>Normal</td>
+          <td>Standard network permission included by the native application wrapper. Arrow Untangle does not transmit personal data, telemetry, or user content over the network.</td>
         </tr>
       </tbody>
     </table>
 
-    <h2>6. Third-Party Services &amp; Libraries</h2>
-    <p>Arrow Untangle does not integrate third-party marketing, data brokers, or advertising trackers. Any standard operating system interactions (such as system updates or app installs through Google Play or Apple App Store) are governed by the respective platform policies:</p>
+    <h2>4. Data Storage and Retention</h2>
+    <p>Game state (such as your current puzzle level, sound and vibration toggles, and casual or challenge game mode) is stored locally on your device using the browser sandbox storage (<code>localStorage</code>).</p>
+    <p>This data remains on your physical hardware. It is never synchronized to external servers. Uninstalling the application from your device removes all stored level progress and settings.</p>
+
+    <h2>5. Children's Privacy</h2>
+    <p>Arrow Untangle is a family-safe puzzle game suitable for general audiences of all ages. We comply with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policy. We do not knowingly collect personal information from children under 13 years of age.</p>
+
+    <h2>6. Third-Party Services</h2>
+    <p>The application relies solely on standard operating system platforms for distribution and updates (Google Play Store). Platform interactions with Google are governed by the <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a>.</p>
+
+    <h2>7. Policy Updates</h2>
+    <p>We may revise this Privacy Policy when updating game features or compliance guidelines. Any updates will be reflected directly on this page with an updated effective date.</p>
+
+    <h2>8. Contact Information</h2>
+    <p>For questions or feedback regarding this Privacy Policy, please contact:</p>
     <ul>
-      <li><a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent); text-decoration: none;">Google Privacy Policy</a></li>
-      <li><a href="https://www.apple.com/legal/privacy/" target="_blank" style="color: var(--accent); text-decoration: none;">Apple Privacy Policy</a></li>
+      <li><strong>Developer:</strong> Karya Nest Softwares</li>
+      <li><strong>Contact Email:</strong> <a href="mailto:Karyanest@gmail.com">Karyanest@gmail.com</a></li>
     </ul>
-
-    <h2>7. Data Retention &amp; Deletion</h2>
-    <ul>
-      <li><strong>Resetting Progress:</strong> You can reset or change levels directly from the in-game level selector or restart dialog.</li>
-      <li><strong>Complete Deletion on Uninstall:</strong> Because all game data is kept inside the app's isolated local sandbox, uninstalling Arrow Untangle from your device immediately and permanently deletes all stored progress.</li>
-    </ul>
-
-    <h2>8. Children's Privacy (COPPA &amp; Google Play Families Policy)</h2>
-    <p>Arrow Untangle is a family-friendly procedural untangle puzzle game suitable for audiences of all ages (rated Everyone / 3+). We do not knowingly collect, harvest, or solicit any personal information from children under the age of 13 (or the applicable age in your jurisdiction). The game complies fully with the <strong>Children's Online Privacy Protection Act (COPPA)</strong> and Google Play's Families Policy.</p>
-
-    <h2>9. International Privacy Compliance (GDPR &amp; CCPA / CPRA)</h2>
-    <ul>
-      <li><strong>GDPR (European Union &amp; UK):</strong> Because we do not collect, process, or transmit personal data to remote servers, no international data transfers or processing operations occur.</li>
-      <li><strong>California Consumer Privacy Act (CCPA / CPRA):</strong> We do not collect personal information, and we do not sell, share, or monetize consumer information for monetary or valuable consideration.</li>
-    </ul>
-
-    <h2>10. Changes to This Privacy Policy</h2>
-    <p>We may periodically update this policy if new gameplay features or legal standards require it. Any updates will be published directly to this page with a revised effective date.</p>
-
-    <h2>11. Contact Us</h2>
-    <p>If you have any questions or feedback regarding this Privacy Policy or Arrow Untangle, feel free to reach out:</p>
-    <ul>
-      <li><strong>Developer:</strong> Sourav (Karya Nest Softwares)</li>
-      <li><strong>Email:</strong> <a href="mailto:Karyanest@gmail.com" style="color: var(--accent); text-decoration: none;">Karyanest@gmail.com</a></li>
-      <li><strong>Website:</strong> <a href="https://karyanest.com" style="color: var(--accent); text-decoration: none;">https://karyanest.com</a> (or <a href="https://unicsam.github.io" style="color: var(--accent); text-decoration: none;">https://unicsam.github.io</a>)</li>
-    </ul>
-
-    <hr>
 
     <footer>
-      <div>&copy; 2026 Karya Nest Softwares. All rights reserved.</div>
-      <div>
-        <a href="https://karyanest.com">All Apps</a> &bull;
-        <a href="mailto:Karyanest@gmail.com">Support</a>
-      </div>
+      <div>&copy; 2026 Karya Nest Softwares</div>
+      <div>Arrow Untangle &bull; Privacy Policy</div>
     </footer>
   </main>
 
   <script>
-    const themeBtn = document.getElementById('themeBtn');
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.body.classList.add('dark');
-    }
-    themeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-    });
+    (function () {
+      var themeBtn = document.getElementById('themeBtn');
+      var saved = localStorage.getItem('kn_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark');
+      }
+      themeBtn.addEventListener('click', function () {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('kn_theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      });
+    })();
   </script>
 </body>
 </html>
