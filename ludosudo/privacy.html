@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Ludo Sudo</title>
-  <meta name="description" content="Official Google Play Compliant Privacy Policy for Ludo Sudo by Karya Nest Softwares.">
+  <meta name="description"
+    content="Official Google Play Compliant Privacy Policy for Ludo Sudo (Tabletop Gaming Suite) by Karya Nest Softwares.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,7 +31,11 @@
       --accent: #38bdf8;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -41,9 +47,17 @@
       line-height: 1.75;
     }
 
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
@@ -78,7 +92,8 @@
     .theme-btn {
       background: none;
       border: 1px solid var(--border);
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -88,12 +103,31 @@
       transition: border-color 0.15s, color 0.15s;
     }
 
-    .theme-btn:hover { border-color: var(--text-secondary); color: var(--text); }
-    .theme-btn svg { width: 16px; height: 16px; }
-    .icon-sun { display: none; }
-    .icon-moon { display: block; }
-    body.dark .icon-sun { display: block; }
-    body.dark .icon-moon { display: none; }
+    .theme-btn:hover {
+      border-color: var(--text-secondary);
+      color: var(--text);
+    }
+
+    .theme-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .icon-sun {
+      display: none;
+    }
+
+    .icon-moon {
+      display: block;
+    }
+
+    body.dark .icon-sun {
+      display: block;
+    }
+
+    body.dark .icon-moon {
+      display: none;
+    }
 
     main {
       max-width: 800px;
@@ -130,7 +164,8 @@
     }
 
     .badge-dot {
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: #22c55e;
     }
@@ -201,7 +236,8 @@
       overflow: hidden;
     }
 
-    th, td {
+    th,
+    td {
       padding: 12px 16px;
       text-align: left;
       border-bottom: 1px solid var(--border);
@@ -257,17 +293,24 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
     <div class="nav">
       <a href="../index.html" class="nav-brand">
-        <img src="icon.png" alt="Ludo Sudo Logo">
+        <img src="icon.webp" alt="Ludo Sudo Logo" width="24" height="24">
         <span>Karya Nest</span>
       </a>
       <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+        </svg>
       </button>
     </div>
   </header>
@@ -283,36 +326,51 @@
 
     <div class="highlight-card">
       <h3>Summary of Data Safety</h3>
-      <p>Ludo Sudo is designed with a decentralized, peer-to-peer (P2P) architecture. We do not require accounts or logins, we do not operate a centralized database, and we do not store or collect personal information on external servers. Real-time in-game voice chat is transmitted directly between players and is never recorded or stored.</p>
+      <p>Ludo Sudo is designed with a decentralized, peer-to-peer (P2P) architecture. We do not require accounts or
+        logins, we do not operate a centralized database, and we do not store or collect personal information on
+        external servers. Real-time in-game voice chat is transmitted directly between players and is never recorded or
+        stored.</p>
     </div>
 
     <h2>1. Developer Entity &amp; Point of Contact</h2>
     <ul>
       <li><strong>Developer Entity:</strong> Karya Nest Softwares</li>
       <li><strong>Developer / Maintainer:</strong> Sourav</li>
-      <li><strong>Website:</strong> <a href="https://karyanest.com" style="color: var(--accent); text-decoration: none;">https://karyanest.com</a></li>
-      <li><strong>Contact Email:</strong> <a href="mailto:Karyanest@gmail.com" style="color: var(--accent); text-decoration: none;">Karyanest@gmail.com</a></li>
+      <li><strong>Website:</strong> <a href="https://karyanest.com"
+          style="color: var(--accent); text-decoration: none;">https://karyanest.com</a></li>
+      <li><strong>Contact Email:</strong> <a href="mailto:Karyanest@gmail.com"
+          style="color: var(--accent); text-decoration: none;">Karyanest@gmail.com</a></li>
     </ul>
 
     <h2>2. Scope of This Policy</h2>
-    <p>This Privacy Policy applies solely to the <strong>Ludo Sudo</strong> mobile application (Package Name: <code>ludo.sudo</code>) distributed via Google Play Store and official channels.</p>
+    <p>This Privacy Policy applies solely to the <strong>Ludo Sudo</strong> mobile application (Package Name:
+      <code>ludo.sudo</code>) distributed via Google Play Store and official channels.</p>
 
     <h2>3. Information We Collect</h2>
 
     <h3>A. Personal Information</h3>
-    <p><strong>None.</strong> We do not collect names, email addresses, phone numbers, user accounts, passwords, or profile credentials. No registration or login is required to play.</p>
+    <p><strong>None.</strong> We do not collect names, email addresses, phone numbers, user accounts, passwords, or
+      profile credentials. No registration or login is required to play.</p>
 
     <h3>B. In-Game Display Name &amp; Preferences</h3>
-    <p>Players may choose a custom display name or roll an in-game gamer tag. This display name and your game settings (such as sound effects and fullscreen mode) are stored strictly locally on your device in Android's private <code>SharedPreferences</code> sandbox. They are never sent to a remote user database.</p>
+    <p>Players may choose a custom display name or roll an in-game gamer tag. This display name and your game settings
+      (such as sound effects and fullscreen mode) are stored strictly locally on your device in Android's private
+      <code>SharedPreferences</code> sandbox. They are never sent to a remote user database.</p>
 
     <h3>C. Real-Time In-Game Voice Chat (Microphone)</h3>
-    <p>The application provides an optional live voice chat feature for multiplayer matches. Audio streams are transmitted directly between players using encrypted WebRTC (DTLS-SRTP) peer-to-peer connections. <strong>Voice audio is processed strictly in real time in volatile memory; it is never recorded, saved, transcribed, or uploaded to any server.</strong> Media streams terminate immediately when you leave or finish a match.</p>
+    <p>The application provides an optional live voice chat feature for multiplayer matches. Audio streams are
+      transmitted directly between players using encrypted WebRTC (DTLS-SRTP) peer-to-peer connections. <strong>Voice
+        audio is processed strictly in real time in volatile memory; it is never recorded, saved, transcribed, or
+        uploaded to any server.</strong> Media streams terminate immediately when you leave or finish a match.</p>
 
     <h3>D. Network &amp; Multiplayer Communications</h3>
     <ul>
-      <li><strong>Local Wi-Fi Discovery:</strong> To discover nearby games on the same Wi-Fi network, the app uses standard Network Service Discovery (mDNS). No data leaves your local home network.</li>
-      <li><strong>Peer-to-Peer Signaling:</strong> When matching online, temporary signaling exchanges network routing data (ICE candidates/IP and port) solely to negotiate the direct P2P link between players.</li>
-      <li><strong>Firebase Cloud Messaging (FCM):</strong> Lightweight notifications delivered via Google Play Services to notify friends of match invites. We do not store or associate push tokens with personal identities.</li>
+      <li><strong>Local Wi-Fi Discovery:</strong> To discover nearby games on the same Wi-Fi network, the app uses
+        standard Network Service Discovery (mDNS). No data leaves your local home network.</li>
+      <li><strong>Peer-to-Peer Signaling:</strong> When matching online, temporary signaling exchanges network routing
+        data (ICE candidates/IP and port) solely to negotiate the direct P2P link between players.</li>
+      <li><strong>Firebase Cloud Messaging (FCM):</strong> Lightweight notifications delivered via Google Play Services
+        to notify friends of match invites. We do not store or associate push tokens with personal identities.</li>
     </ul>
 
     <h2>4. Android Permissions Justification</h2>
@@ -329,12 +387,14 @@
       <tbody>
         <tr>
           <td><code>android.permission.RECORD_AUDIO</code></td>
-          <td>Used exclusively for optional live voice communication during multiplayer matches. Audio is transmitted peer-to-peer and is never recorded or stored.</td>
+          <td>Used exclusively for optional live voice communication during multiplayer matches. Audio is transmitted
+            peer-to-peer and is never recorded or stored.</td>
           <td>Runtime (Sensitive)</td>
         </tr>
         <tr>
           <td><code>android.permission.MODIFY_AUDIO_SETTINGS</code></td>
-          <td>Adjusts audio routing between the device loudspeaker, earpiece, or connected Bluetooth headsets during voice chat.</td>
+          <td>Adjusts audio routing between the device loudspeaker, earpiece, or connected Bluetooth headsets during
+            voice chat.</td>
           <td>Normal</td>
         </tr>
         <tr>
@@ -349,39 +409,54 @@
         </tr>
         <tr>
           <td><code>android.permission.CHANGE_WIFI_MULTICAST_STATE</code></td>
-          <td>Allows the app to broadcast and receive Multicast DNS (mDNS) packets to discover nearby players on local Wi-Fi.</td>
+          <td>Allows the app to broadcast and receive Multicast DNS (mDNS) packets to discover nearby players on local
+            Wi-Fi.</td>
           <td>Normal</td>
         </tr>
       </tbody>
     </table>
 
     <h2>5. Third-Party Services &amp; SDKs</h2>
-    <p>The application contains <strong>zero third-party advertising or tracking SDKs</strong>. It integrates only standard Google Play services:</p>
+    <p>The application contains <strong>zero third-party advertising or tracking SDKs</strong>. It integrates only
+      standard Google Play services:</p>
     <ul>
-      <li><strong>Google Play In-App Update API:</strong> Checks for critical application updates directly through Google Play.</li>
-      <li><strong>Google Play In-App Review API:</strong> Allows players to submit feedback directly to the Play Store.</li>
-      <li><strong>Firebase Cloud Messaging (Google LLC):</strong> Transmits incoming game invite alerts via Google Play Services.</li>
+      <li><strong>Google Play In-App Update API:</strong> Checks for critical application updates directly through
+        Google Play.</li>
+      <li><strong>Google Play In-App Review API:</strong> Allows players to submit feedback directly to the Play Store.
+      </li>
+      <li><strong>Firebase Cloud Messaging (Google LLC):</strong> Transmits incoming game invite alerts via Google Play
+        Services.</li>
     </ul>
-    <p>Interactions with Google Play services are governed by the <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent); text-decoration: none;">Google Privacy Policy</a>.</p>
+    <p>Interactions with Google Play services are governed by the <a href="https://policies.google.com/privacy"
+        target="_blank" style="color: var(--accent); text-decoration: none;">Google Privacy Policy</a>.</p>
 
     <h2>6. Data Storage &amp; Retention</h2>
-    <p>Because Karya Nest does not operate external user databases or cloud servers, no user data is retained remotely. All preferences and display names reside entirely in your phone's sandbox storage. Clearing the application data in your Android Settings or uninstalling the app permanently removes all local data immediately.</p>
+    <p>Because Karya Nest does not operate external user databases or cloud servers, no user data is retained remotely.
+      All preferences and display names reside entirely in your phone's sandbox storage. Clearing the application data
+      in your Android Settings or uninstalling the app permanently removes all local data immediately.</p>
 
     <h2>7. Children's Privacy (COPPA &amp; Google Play Families Policy)</h2>
-    <p>Ludo Sudo is a family-friendly board game suitable for general audiences of all ages. We comply with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policy. We do not knowingly collect personal data from children under 13.</p>
+    <p>Ludo Sudo is a family-friendly board game suitable for general audiences of all ages. We comply with the
+      Children's Online Privacy Protection Act (COPPA) and Google Play Families Policy. We do not knowingly collect
+      personal data from children under 13.</p>
 
     <h2>8. Legal Compliance (GDPR &amp; CCPA)</h2>
-    <p>Because the app operates on-device and peer-to-peer without collecting, storing, or selling personal data, we do not monetize, share, or process personal data under the General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA).</p>
+    <p>Because the app operates on-device and peer-to-peer without collecting, storing, or selling personal data, we do
+      not monetize, share, or process personal data under the General Data Protection Regulation (GDPR) or the
+      California Consumer Privacy Act (CCPA).</p>
 
     <h2>9. Changes to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy periodically. Any updates will be published on this page with a revised "Effective Date" at the top.</p>
+    <p>We may update this Privacy Policy periodically. Any updates will be published on this page with a revised
+      "Effective Date" at the top.</p>
 
     <h2>10. Contact Us</h2>
     <p>If you have any questions or feedback regarding this Privacy Policy, please contact:</p>
     <ul>
       <li><strong>Developer:</strong> Sourav (Karya Nest Softwares)</li>
-      <li><strong>Email:</strong> <a href="mailto:Karyanest@gmail.com" style="color: var(--accent); text-decoration: none;">Karyanest@gmail.com</a></li>
-      <li><strong>Website:</strong> <a href="https://karyanest.com" style="color: var(--accent); text-decoration: none;">https://karyanest.com</a></li>
+      <li><strong>Email:</strong> <a href="mailto:Karyanest@gmail.com"
+          style="color: var(--accent); text-decoration: none;">Karyanest@gmail.com</a></li>
+      <li><strong>Website:</strong> <a href="https://karyanest.com"
+          style="color: var(--accent); text-decoration: none;">https://karyanest.com</a></li>
     </ul>
 
     <hr>
@@ -407,4 +482,5 @@
     });
   </script>
 </body>
+
 </html>
