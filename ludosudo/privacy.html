@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Ludo Sudo</title>
+  <meta name="description" content="Official Privacy Policy for Ludo Sudo by Karya Nest. Detailed data safety disclosures for Google Play, GDPR, CCPA, and COPPA compliance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-secondary: #475569;
+      --border: #e2e8f0;
+      --accent: #ff0d2d;
+      --accent-hover: #dc2626;
+      --tag-bg: #fee2e2;
+      --tag-text: #991b1b;
+    }
+
+    body.dark {
+      --bg: #090d16;
+      --bg-subtle: #0f172a;
+      --card-bg: #141c2e;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1e293b;
+      --accent: #ff2d4b;
+      --accent-hover: #ff4d66;
+      --tag-bg: #3f1219;
+      --tag-text: #fca5a5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 44px 20px 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .metadata-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      font-size: 0.88rem;
+    }
+
+    .metadata-item span {
+      display: block;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .metadata-item strong {
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-top: 40px;
+      margin-bottom: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      margin-bottom: 14px;
+    }
+
+    ul, ol {
+      margin: 10px 0 18px 24px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    .highlight-card {
+      background: var(--bg-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.92rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 20px 0 28px;
+      font-size: 0.88rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text);
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    td {
+      color: var(--text-secondary);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85em;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #ffffff !important;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      margin-top: 10px;
+      transition: background-color 0.15s, transform 0.15s;
+    }
+
+    .btn-action:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+      padding-top: 28px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <a href="index.html" class="nav-brand">
+        <img src="icon.png" alt="Ludo Sudo Logo">
+        <span>Ludo Sudo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="delete-account.html" class="nav-link">Account / Data Deletion</a>
+        <button class="theme-toggle" id="themeBtn" type="button">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero-badge">Official Policy Document</div>
+    <h1>Privacy Policy</h1>
+
+    <div class="metadata-box">
+      <div class="metadata-item">
+        <span>Application</span>
+        <strong>Ludo Sudo (Board Game)</strong>
+      </div>
+      <div class="metadata-item">
+        <span>Package Name</span>
+        <code>ludo.sudo</code>
+      </div>
+      <div class="metadata-item">
+        <span>Developer</span>
+        <strong>Karya Nest</strong>
+      </div>
+      <div class="metadata-item">
+        <span>Effective Date</span>
+        <strong>November 10, 2026</strong>
+      </div>
+    </div>
+
+    <p>This Privacy Policy describes how <strong>Karya Nest</strong> ("we", "us", or "our") collects, uses, processes, and protects user information when you install and play our mobile game <strong>Ludo Sudo</strong> (the "Application" or "Game").</p>
+    
+    <p>Ludo Sudo is engineered with a strict <strong>Privacy-First and Decentralized Peer-to-Peer (P2P) Architecture</strong>. We do not require account registration, passwords, email addresses, phone numbers, or social media logins to play. We do not sell user data or track users across external apps and websites.</p>
+
+    <h2>1. Data Safety & Information Collection</h2>
+    <p>In accordance with Google Play's Data Safety declaration requirements, below is a transparent breakdown of all data handled by Ludo Sudo:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Data Category</th>
+          <th>Specific Data Point</th>
+          <th>Collection Status</th>
+          <th>Purpose & Storage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Personal Info</strong></td>
+          <td>Player Nickname / Display Name</td>
+          <td>Optional (User-set)</td>
+          <td>Stored strictly locally on your device in SharedPreferences. Transmitted peer-to-peer to match participants so opponents can see your name during gameplay. Never stored in a central remote user database.</td>
+        </tr>
+        <tr>
+          <td><strong>Microphone / Audio</strong></td>
+          <td>In-Game Voice Chat Stream</td>
+          <td>Ephemeral (P2P)</td>
+          <td>Transmitted in real-time between match players via encrypted WebRTC streams (DTLS-SRTP). <strong>Audio is strictly ephemeral and never recorded, saved, transcribed, or stored on any server.</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Device & Other IDs</strong></td>
+          <td>Firebase Cloud Messaging (FCM) Token</td>
+          <td>Collected solely for notifications</td>
+          <td>Used exclusively for peer matchmaking wake-up signals and offline game invite notifications. Exchanged directly with mutual friends or ephemeral matchmaking relays.</td>
+        </tr>
+        <tr>
+          <td><strong>Local Game State</strong></td>
+          <td>Game rules, settings, sound toggles, friend keys</td>
+          <td>Local only</td>
+          <td>Stored entirely in local app sandbox storage. Decoupled from any remote server.</td>
+        </tr>
+        <tr>
+          <td><strong>Financial / Payment</strong></td>
+          <td>Credit cards, bank details</td>
+          <td>Not Collected</td>
+          <td>The app does not collect or process financial information.</td>
+        </tr>
+        <tr>
+          <td><strong>Precise Location</strong></td>
+          <td>GPS coordinates</td>
+          <td>Not Collected</td>
+          <td>Local Wi-Fi discovery uses Android Network Service Discovery (NSD/mDNS) over the local subnet without accessing GPS location.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. In-Game Voice Chat & Permissions</h2>
+    <p>Ludo Sudo includes an optional real-time voice chat feature for friends and multiplayer opponents. The following permissions are requested exclusively when necessary:</p>
+    <ul>
+      <li><code>android.permission.RECORD_AUDIO</code>: Requested only when you join an active voice-enabled room or tap the in-game microphone. Used solely to capture your voice for real-time transmission to peers in your match.</li>
+      <li><code>android.permission.MODIFY_AUDIO_SETTINGS</code>: Used to route audio appropriately between your device loudspeaker, earpiece, or connected Bluetooth headsets.</li>
+      <li><code>android.permission.ACCESS_NETWORK_STATE</code> &amp; <code>android.permission.ACCESS_WIFI_STATE</code>: Used to verify network connectivity and establish local Wi-Fi / LAN multiplayer connections.</li>
+      <li><code>android.permission.CHANGE_WIFI_MULTICAST_STATE</code>: Used to broadcast and discover nearby games on the local Wi-Fi network using Multicast DNS / NSD.</li>
+      <li><code>android.permission.WAKE_LOCK</code>: Ensures the game session and audio processing remain active during active gameplay.</li>
+    </ul>
+
+    <div class="highlight-card">
+      <strong>Important Privacy Guarantee:</strong> Voice conversations are strictly transient and peer-to-peer. Neither Karya Nest nor any third-party records, logs, listens to, or archives player voice conversations. When your match concludes, the WebRTC media stream is immediately destroyed.
+    </div>
+
+    <h2>3. Account System & Data Deletion (Google Play Compliance)</h2>
+    <p>Ludo Sudo utilizes a <strong>serverless, decentralized identity model</strong>. You are not forced to register an account with an email address, phone number, or password. Your identity consists of a cryptographically generated cryptographic keypair stored inside your device's protected sandboxed storage.</p>
+    
+    <p>To adhere fully to Google Play's <strong>Account Deletion and User Data Policy</strong>, we provide two complete pathways for data erasure:</p>
+    <ol>
+      <li><strong>In-App Deletion Mechanism:</strong> Open <strong>Settings &gt; Reset &amp; Erase All Player Data</strong> in Ludo Sudo. Tapping this will instantly and permanently wipe your player profile, locally stored keys, friend lists, match preferences, and cached tokens from your device storage.</li>
+      <li><strong>Web Deletion Resource:</strong> If you have uninstalled the application or wish to ensure all cached relay/token data is purged, you can visit our dedicated web deletion portal:</li>
+    </ol>
+    <p>
+      <a href="delete-account.html" class="btn-action">Go to Account & Data Deletion Portal &rarr;</a>
+    </p>
+
+    <h2>4. Third-Party Services and SDKs</h2>
+    <p>Ludo Sudo incorporates vetted, minimal developer SDKs provided by Google:</p>
+    <ul>
+      <li><strong>Google Play In-App Review:</strong> Allows players to submit feedback directly to the Google Play Store following match victories without tracking personal identity. Governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+      <li><strong>Google Play In-App Updates:</strong> Ensures users receive critical security patches and application updates directly from Google Play.</li>
+      <li><strong>Firebase Cloud Messaging (Google LLC):</strong> Dispatches lightweight wake-up push notifications for match invites. Handles anonymous registration tokens in compliance with Google Play Developer Policies.</li>
+    </ul>
+
+    <h2>5. Children's Privacy (COPPA & Google Play Families Policy)</h2>
+    <p>Ludo Sudo is a general audience, family-friendly traditional board game suitable for all ages. We strictly adhere to the <strong>Children's Online Privacy Protection Act (COPPA)</strong>, the <strong>General Data Protection Regulation (GDPR)</strong>, and Google Play's Families Policy:</p>
+    <ul>
+      <li>We do not knowingly collect, store, or solicit personal identification data from children under 13 (or under 16 in the EEA).</li>
+      <li>The application does not serve targeted behavioral advertising.</li>
+      <li>Voice chat can be completely muted or disabled by the user at any point via the in-game settings.</li>
+    </ul>
+
+    <h2>6. International Privacy Rights (GDPR & CCPA/CPRA Compliance)</h2>
+    <p>Regardless of your geographic location, we respect your fundamental privacy rights:</p>
+    <h3>European Economic Area (EEA) / UK (GDPR)</h3>
+    <p>Under the EU General Data Protection Regulation, you hold the right to access, rectify, restrict, or erase ("Right to be Forgotten") any data associated with your usage. Because your player profile is stored locally on your device, you have autonomous, immediate control to wipe all data directly via the app settings or by clearing app storage.</p>
+
+    <h3>California Residents (CCPA / CPRA)</h3>
+    <p>Under the California Consumer Privacy Act and California Privacy Rights Act:
+    <ul>
+      <li><strong>No Sale or Sharing of Personal Data:</strong> We do not "sell" or "share" user personal information with third parties for monetary or valuable consideration.</li>
+      <li><strong>Right to Know &amp; Delete:</strong> You have the right to request deletion of any personal information collected. You can exercise this right instantly via the in-app reset button or our deletion portal.</li>
+      <li><strong>Non-Discrimination:</strong> We will never discriminate against you for exercising your privacy rights.</li>
+    </ul>
+
+    <h2>7. Security & Encryption in Transit</h2>
+    <p>All communication channels utilized by Ludo Sudo employ industry-standard encryption protocols:</p>
+    <ul>
+      <li>P2P Voice Streams are encrypted end-to-end using <strong>SRTP (Secure Real-time Transport Protocol)</strong> with <strong>DTLS (Datagram Transport Layer Security)</strong> handshakes.</li>
+      <li>Push signaling and relay channels are protected via <strong>TLS 1.3 / HTTPS / WSS</strong>.</li>
+      <li>Local identity keys and contact fingerprints are encrypted within the Android sandboxed application directory.</li>
+    </ul>
+
+    <h2>8. Changes to this Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect game feature enhancements or regulatory modifications. When updates occur, the updated policy will be posted on this page with a revised "Effective Date".</p>
+
+    <h2>9. Contact Us</h2>
+    <p>If you have any questions, suggestions, or privacy requests regarding Ludo Sudo or this policy, please contact our data protection team:</p>
+    <ul>
+      <li><strong>Developer Entity:</strong> Karya Nest</li>
+      <li><strong>Founder / Maintainer:</strong> Sourav</li>
+      <li><strong>Support Email:</strong> <a href="mailto:Karyanest@gmail.com">Karyanest@gmail.com</a></li>
+      <li><strong>Website:</strong> <a href="https://karyanest.com" target="_blank" rel="noopener">https://karyanest.com</a></li>
+    </ul>
+
+    <footer>
+      <div>&copy; 2026 Karya Nest. All rights reserved.</div>
+      <div>Ludo Sudo &bull; <a href="delete-account.html">Data Deletion</a> &bull; <a href="privacy.html">Privacy</a></div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var themeBtn = document.getElementById('themeBtn');
+      var saved = localStorage.getItem('kn_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark');
+      }
+      themeBtn.addEventListener('click', function () {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('kn_theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ludo Sudo — Official Cyber Esports Board Game by Karya Nest</title>
+  <meta name="description" content="Ludo Sudo is the revolutionary, privacy-first cyber esports board game featuring real-time encrypted voice chat, offline local Wi-Fi, and competitive multiplayer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --bg-subtle: #101726;
+      --card-bg: #141d30;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1e293b;
+      --accent: #ff0d2d;
+      --accent-hover: #ff2d4b;
+      --gold: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(9, 13, 22, 0.9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: block;
+      box-shadow: 0 0 15px rgba(255, 13, 45, 0.4);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255, 13, 45, 0.12);
+      border: 1px solid rgba(255, 13, 45, 0.3);
+      color: #ff4d66;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(255, 13, 45, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .hero-cta:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255, 13, 45, 0.6);
+    }
+
+    .features-grid {
+      max-width: 960px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-subtle);
+      padding: 36px 20px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <a href="index.html" class="nav-brand">
+        <img src="icon.png" alt="Ludo Sudo Logo">
+        <span>Ludo Sudo</span>
+      </a>
+      <div class="nav-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="delete-account.html">Data Deletion</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-badge">&bull; CYBER ESPORTS BOARD GAMING</div>
+      <h1>Play. Connect. Compete.</h1>
+      <p>Ludo Sudo redefines classic tabletop strategy with military-grade privacy, end-to-end encrypted voice chat, and peer-to-peer multiplayer without registration.</p>
+      <a href="https://play.google.com/store/apps/details?id=ludo.sudo" class="hero-cta">
+        Download on Google Play &rarr;
+      </a>
+    </section>
+
+    <section class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>100% Serverless &amp; Private</h3>
+        <p>No phone numbers, no passwords, no email tracking. Your cryptographic identity stays securely in your phone's sandbox.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎙️</div>
+        <h3>Encrypted P2P Voice Chat</h3>
+        <p>Talk in real-time with your match opponents. Audio is streamed peer-to-peer via DTLS-SRTP and is never recorded or stored on any server.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📶</div>
+        <h3>Local Wi-Fi &amp; Internet</h3>
+        <p>Challenge friends sitting in the same room using automatic zero-config Wi-Fi discovery, or invite remote buddies with instant deep links.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; 2026 <strong>Karya Nest</strong>. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="delete-account.html">Account &amp; Data Deletion</a>
+        <a href="mailto:Karyanest@gmail.com">Contact Support</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
